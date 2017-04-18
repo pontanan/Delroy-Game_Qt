@@ -11,6 +11,8 @@
 #include "Farmer.h"
 #include "Projectile.h"
 #include "Weapon.h"
+#include "Box.h"
+#include "Stone.h"
 
 
 namespace Ui {
@@ -37,6 +39,8 @@ private:
       Farmer farmer;
       Projectile projectile;
       Weapon weapon;
+      Box box;
+      Stone stone;
 private slots:
     void update();
     void keyPressEvent(QKeyEvent *e);

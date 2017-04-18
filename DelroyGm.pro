@@ -13,7 +13,10 @@ SOURCES += main.cpp \
     Farmer.cpp \
     MainCharacter.cpp \
     Projectile.cpp \
-    Weapon.cpp
+    Weapon.cpp \
+    Obstacles.cpp \
+    Box.cpp \
+    Stone.cpp
 
 DISTFILES += \
     DelroyGm.pro.user \
@@ -51,7 +54,10 @@ HEADERS += \
     Farmer.h \
     MainCharacter.h \
     Projectile.h \
-    Weapon.h
+    Weapon.h \
+    Obstacles.h \
+    Box.h \
+    Stone.h
 
 FORMS += \
     Resources/gamewindow.ui
