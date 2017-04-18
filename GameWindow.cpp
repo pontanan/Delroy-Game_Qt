@@ -35,11 +35,10 @@ void GameWindow::paintEvent(QPaintEvent * e)
 }
 void GameWindow::mouseMoveEvent(QMouseEvent* e)
 {
-}
-void GameWindow::keyPressEvent(QKeyEvent * e)
-{
 
-void GameWindow::keyPressEvent(QKeyEvent *e)
+}
+
+void GameWindow::keyPressEvent(QKeyEvent * e)
 {
 
 }
