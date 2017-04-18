@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QPainter>
+#include "Projectile.h"
 
 class Weapon
 {
@@ -12,9 +13,12 @@ public:
     int getY();
     void setPosition(int x, int y);
     void setSprite(QPixmap newPixmap);
+    void shootRight(Projectile *bullet);
+    void shootLeft(Projectile *bullet);
     void checkCollision();
     void update(Weapon * weapon);
     void paint(QPainter * qp);
+    virtual ~Weapon();
 protected:
     QPixmap pixmap;
     QRect position;
