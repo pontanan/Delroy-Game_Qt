@@ -2,6 +2,7 @@
 #include "ui_gamewindow.h"
 #include "QPainter"
 #include <QKeyEvent>
+#include <QGraphicsItem>
 
 GameWindow::GameWindow(QWidget *parent) :
 	QMainWindow(parent),
@@ -12,6 +13,7 @@ GameWindow::GameWindow(QWidget *parent) :
 	timer = new QTimer(this);
 	connect(timer, SIGNAL(timeout()), this, SLOT(update()));
 	timer->start(60);
+    setFocusPolicy(Qt::StrongFocus);
 }
 
 GameWindow::~GameWindow()
@@ -34,12 +36,19 @@ void GameWindow::paintEvent(QPaintEvent * e)
       dirt.paint(&qp);
       maincharacter.paint(&qp);
 }
-void GameWindow::mouseMoveEvent(QMouseEvent* e)
-{
-
-}
 
 void GameWindow::keyPressEvent(QKeyEvent * e)
 {
-
+    if(e->key() == Qt::Key_Left)
+    {
+        maincharacter.setSprite(QPixmap("Resources/delroy/delroy_left.png"));
+        maincharacter.setPosition(maincharacter.getX() - 5, maincharacter.getY());
+    }
+    if(e->key() == Qt::Key_Right)
+    {
+        maincharacter.setSprite(QPixmap("Resources/delroy/delroy_right.png"));
+        maincharacter.setPosition(maincharacter.getX() + 5, maincharacter.getY());
+    }
 }
+
+

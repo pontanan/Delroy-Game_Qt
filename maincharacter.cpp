@@ -5,14 +5,27 @@ MainCharacter::MainCharacter() :Player(QPixmap("Resources/delroy/delroy_right.pn
 
 }
 
+int MainCharacter::getX()
+{
+    return this->position.x();
+}
+
+int MainCharacter::getY()
+{
+    return this->position.y();
+}
+
 void MainCharacter::setPosition(int x, int y)
 {
     position = QRect(x, y, position.width(),position.height());
 }
-/*void Background::update(Background *background)
+
+void MainCharacter::setSprite(QPixmap newPixmap)
 {
-    for(int i =0; i <10; i++)
-    {
-        setPosition(i, 0);
-    }
-}*/
+    pixmap = newPixmap;
+}
+
+void MainCharacter::update(MainCharacter *maincharacter)
+{
+
+}
