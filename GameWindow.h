@@ -4,8 +4,8 @@
 #include <QMainWindow>
 #include <QTimer>
 #include <QtGui>
-//#include "Character.h"
-//#include "Ground.h"
+#include "Background.h"
+#include "ground.h"
 
 
 namespace Ui {
@@ -19,6 +19,7 @@ class GameWindow : public QMainWindow
 public:
 	void paintEvent(QPaintEvent * e);
 	void mouseMoveEvent(QMouseEvent* e);
+	void keyPressEvent(QKeyEvent *e);
 
 	explicit GameWindow(QWidget *parent = 0);
 	~GameWindow();
@@ -26,8 +27,10 @@ public:
 private:
 	Ui::GameWindow *ui;
 	QTimer * timer;
+      Background background;
+      Ground dirt;
 private slots:
-	void update();
+    void update();
 };
 
 #endif // GAMEWINDOW_H
