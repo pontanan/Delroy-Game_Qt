@@ -18,6 +18,7 @@ class GameWindow : public QMainWindow
 public:
 	void paintEvent(QPaintEvent * e);
 	void mouseMoveEvent(QMouseEvent* e);
+	void keyPressEvent(QKeyEvent *e);
 
 	explicit GameWindow(QWidget *parent = 0);
 	~GameWindow();
