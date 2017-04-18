@@ -4,18 +4,19 @@
 
 #include <QWidget>
 #include <Qpainter>
-#include <QTimer>
+#include <QKeyEvent>
 #include "Player.h"
-
 
 class MainCharacter : public Player
 {
 public:
     MainCharacter();
+    int getX();
+    int getY();
     void setPosition(int x, int y);
+    void setSprite(QPixmap newPixmap);
     void update(MainCharacter *maincharacter);
 private:
-    QTimer *timer;
 };
 
 #endif // MAINCHARACTER_H

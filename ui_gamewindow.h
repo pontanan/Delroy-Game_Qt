@@ -32,7 +32,7 @@ public:
     {
         if (GameWindow->objectName().isEmpty())
             GameWindow->setObjectName(QStringLiteral("GameWindow"));
-        GameWindow->setEnabled(false);
+        GameWindow->setEnabled(true);
         GameWindow->resize(800, 600);
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
@@ -42,6 +42,7 @@ public:
         GameWindow->setMinimumSize(QSize(800, 600));
         GameWindow->setMaximumSize(QSize(800, 600));
         GameWindow->setCursor(QCursor(Qt::CrossCursor));
+        GameWindow->setFocusPolicy(Qt::NoFocus);
         centralwidget = new QWidget(GameWindow);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         GameWindow->setCentralWidget(centralwidget);
