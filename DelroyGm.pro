@@ -1,7 +1,7 @@
 TEMPLATE = app
-CONFIG += console c++11
-CONFIG -= app_bundle
-CONFIG -= qt
+QT += core sql widgets gui
+CONFIG += c++11
+
 
 SOURCES += main.cpp \
     GameObject.cpp \
@@ -16,3 +16,6 @@ HEADERS += \
     GameObject.h \
     GameWindow.h \
     Player.h
+
+FORMS += \
+    Resources/gamewindow.ui
