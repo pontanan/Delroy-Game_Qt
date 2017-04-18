@@ -8,3 +8,8 @@ void Box::setPosition(int x, int y)
 {
     position = QRect(x, y, position.width(),position.height());
 }
+
+void Box::update(Box *box)
+{
+
+}

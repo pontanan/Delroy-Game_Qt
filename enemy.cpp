@@ -9,10 +9,8 @@ void Enemy::setPosition(int x, int y)
 {
     position = QRect(x, y, position.width(),position.height());
 }
-/*void Background::update(Background *background)
+
+void Enemy::update(Enemy *enemy)
 {
-    for(int i =0; i <10; i++)
-    {
-        setPosition(i, 0);
-    }
-}*/
+
+}

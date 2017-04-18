@@ -28,6 +28,11 @@ void GameWindow::update()
     maincharacter.update(&maincharacter);
     projectile.update(&projectile);
     weapon.update(&weapon);
+    grass.update(&grass);
+    enemy.update(&enemy);
+    farmer.update(&farmer);
+    box.update(&box);
+    stone.update(&stone);
     repaint();
 }
 
@@ -43,6 +48,7 @@ void GameWindow::paintEvent(QPaintEvent * e)
       weapon.paint(&qp);
       box.paint(&qp);
       stone.paint(&qp);
+      grass.paint(&qp);
 }
 
 void GameWindow::keyPressEvent(QKeyEvent * e)

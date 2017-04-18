@@ -16,7 +16,10 @@ SOURCES += main.cpp \
     Weapon.cpp \
     Obstacles.cpp \
     Box.cpp \
-    Stone.cpp
+    Stone.cpp \
+    Dirt.cpp \
+    Grass.cpp
+
 
 DISTFILES += \
     DelroyGm.pro.user \
@@ -57,7 +60,10 @@ HEADERS += \
     Weapon.h \
     Obstacles.h \
     Box.h \
-    Stone.h
+    Stone.h \
+    Dirt.h \
+    Grass.h
+
 
 FORMS += \
     Resources/gamewindow.ui
