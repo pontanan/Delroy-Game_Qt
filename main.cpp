@@ -1,10 +1,13 @@
-#include <iostream>
+#include "gamewindow.h"
+#include <QApplication>
 
-using namespace std;
 
 int main(int argc, char *argv[])
 {
-    cout << "Hello World!" << endl;
-    cout << "Woot" << endl;
-    return 0;
+    QApplication a(argc, argv);
+    GameWindow w;
+    w.show();
+
+    return a.exec();
+
 }

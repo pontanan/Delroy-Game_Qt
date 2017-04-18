@@ -1,4 +1,4 @@
-#include <QWidget>
+#include <qwidget.h>
 
 class GameObject
 {
