@@ -1,6 +1,6 @@
 #include "maincharacter.h"
 
-MainCharacter::MainCharacter() :Player(QPixmap("Resources/delroy/delroy_right.png"), QRect(50, 499, 32, 32))
+MainCharacter::MainCharacter() :Player(QPixmap("Resources/delroy/delroy_right.png"), QRect(50, 468, 32, 32))
 {
 
 }
