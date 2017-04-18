@@ -3,9 +3,12 @@
 
 #include <QWidget>
 #include <QPainter>
+#include <QTimer>
 
-class Projectile
+class Projectile : public QObject
 {
+    Q_OBJECT
+
 public:
     Projectile();
     int getX();
@@ -14,10 +17,16 @@ public:
     void checkCollision();
     void update(Projectile * projectile);
     void paint(QPainter * qp);
+    virtual ~Projectile();
+
+    bool hidden = true;
+public slots:
+    void move();
 protected:
     QPixmap pixmap;
     QRect position;
-    bool hidden;
+private:
+    QTimer *timer;
 };
 
 #endif // PROJECTILE_H

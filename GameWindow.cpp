@@ -53,19 +53,54 @@ void GameWindow::paintEvent(QPaintEvent * e)
 
 void GameWindow::keyPressEvent(QKeyEvent * e)
 {
+
     if(e->key() == Qt::Key_Left)
     {
+        //shootLeft = true;
+
+        if(firstLeft)
+        {
+            weapon.setPosition(weapon.getX() - 27, weapon.getY());
+            firstLeft = false;
+        }
         weapon.setSprite(QPixmap("Resources/weapons/gun_left.png"));
         maincharacter.setSprite(QPixmap("Resources/delroy/delroy_left.png"));
         maincharacter.setPosition(maincharacter.getX() - 5, maincharacter.getY());
         weapon.setPosition(weapon.getX() - 5, weapon.getY());
+
+
+        firstRight = true;
+
     }
     if(e->key() == Qt::Key_Right)
     {
+        //shootRight = true;
+
+        if(firstRight)
+        {
+            weapon.setPosition(weapon.getX() + 27, weapon.getY());
+            firstRight = false;
+        }
         weapon.setSprite(QPixmap("Resources/weapons/gun_right.png"));
         maincharacter.setSprite(QPixmap("Resources/delroy/delroy_right.png"));
         maincharacter.setPosition(maincharacter.getX() + 5, maincharacter.getY());
         weapon.setPosition(weapon.getX() + 5, weapon.getY());
+
+
+        firstLeft = true;
+
+    }
+    if(e->key() == Qt::Key_X)
+    {
+        if(shootRight)
+        {
+            weapon.shootRight(&projectile);
+        }
+        else if(shootLeft)
+        {
+            weapon.shootLeft(&projectile);
+        }
+
     }
 }
 
