@@ -9,6 +9,8 @@
 #include "maincharacter.h"
 #include "enemy.h"
 #include "Farmer.h"
+#include "Box.h"
+#include "Stone.h"
 
 
 namespace Ui {
@@ -34,6 +36,8 @@ private:
       MainCharacter maincharacter;
       Enemy enemy;
       Farmer farmer;
+      Box box;
+      Stone stone;
 private slots:
     void update();
 };
