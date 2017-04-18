@@ -9,6 +9,8 @@
 #include "maincharacter.h"
 #include "enemy.h"
 #include "Farmer.h"
+#include "Box.h"
+#include "Stone.h"
 
 
 namespace Ui {
@@ -21,7 +23,6 @@ class GameWindow : public QMainWindow
 
 public:
 	void paintEvent(QPaintEvent * e);
-	void mouseMoveEvent(QMouseEvent* e);
     void keyPressEvent(QKeyEvent *e);
 
 	explicit GameWindow(QWidget *parent = 0);
@@ -35,6 +36,8 @@ private:
       MainCharacter maincharacter;
       Enemy enemy;
       Farmer farmer;
+      Box box;
+      Stone stone;
 private slots:
     void update();
 };
