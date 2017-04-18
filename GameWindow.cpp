@@ -21,8 +21,9 @@ GameWindow::~GameWindow()
 
 void GameWindow::update()
 {
-    //background.update(&background);
+    background.update(&background);
     dirt.update(&dirt);
+    maincharacter.update(&maincharacter);
     repaint();
 }
 
