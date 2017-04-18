@@ -39,6 +39,7 @@ void GameWindow::paintEvent(QPaintEvent * e)
       farmer.paint(&qp);
       box.paint(&qp);
       stone.paint(&qp);
+
 }
 
 void GameWindow::keyPressEvent(QKeyEvent * e)

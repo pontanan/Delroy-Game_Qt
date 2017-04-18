@@ -9,9 +9,8 @@ SOURCES += main.cpp \
     Player.cpp \
     Background.cpp \
     ground.cpp \
-    MainCharacter.cpp \
     Enemy.cpp \
-    Farmer.cpp
+    Farmer.cpp \
     MainCharacter.cpp
 
 DISTFILES += \
@@ -45,9 +44,8 @@ HEADERS += \
     Resources/ui_gamewindow.h \
     Background.h \
     ground.h \
-    MainCharacter.h \
     Enemy.h \
-    Farmer.h
+    Farmer.h \
     MainCharacter.h
 
 FORMS += \
