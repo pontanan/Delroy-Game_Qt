@@ -20,6 +20,7 @@ SOURCES += main.cpp \
     Dirt.cpp \
     Grass.cpp
 
+
 DISTFILES += \
     DelroyGm.pro.user \
     README.md \
@@ -62,6 +63,7 @@ HEADERS += \
     Stone.h \
     Dirt.h \
     Grass.h
+
 
 FORMS += \
     Resources/gamewindow.ui
