@@ -12,6 +12,7 @@ SOURCES += main.cpp \
     MainCharacter.cpp \
     Enemy.cpp \
     Farmer.cpp
+    MainCharacter.cpp
 
 DISTFILES += \
     DelroyGm.pro.user \
@@ -47,6 +48,7 @@ HEADERS += \
     MainCharacter.h \
     Enemy.h \
     Farmer.h
+    MainCharacter.h
 
 FORMS += \
     Resources/gamewindow.ui
