@@ -5,8 +5,8 @@
 #include <QTimer>
 #include <QtGui>
 #include "Background.h"
+#include "ground.h"
 #include "maincharacter.h"
-//#include "Ground.h"
 
 
 namespace Ui {
@@ -28,8 +28,9 @@ public:
 private:
 	Ui::GameWindow *ui;
 	QTimer * timer;
-    Background background;
-    MainCharacter maincharacter;
+      Background background;
+      Ground dirt;
+      MainCharacter maincharacter;
 private slots:
     void update();
 };

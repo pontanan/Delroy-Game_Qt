@@ -8,6 +8,7 @@ SOURCES += main.cpp \
     GameWindow.cpp \
     Player.cpp \
     Background.cpp \
+    ground.cpp \
     MainCharacter.cpp
 
 DISTFILES += \
@@ -40,6 +41,7 @@ HEADERS += \
     Player.h \
     Resources/ui_gamewindow.h \
     Background.h \
+    ground.h \
     MainCharacter.h
 
 FORMS += \
