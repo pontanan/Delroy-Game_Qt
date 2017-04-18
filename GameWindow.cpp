@@ -27,7 +27,7 @@ void GameWindow::update()
 void GameWindow::paintEvent(QPaintEvent * e)
 {
 	QPainter qp(this);
-    background.paint(&qp);
+      background.paint(&qp);
 }
 void GameWindow::mouseMoveEvent(QMouseEvent* e)
 {

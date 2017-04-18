@@ -15,7 +15,8 @@ DISTFILES += \
 HEADERS += \
     GameObject.h \
     GameWindow.h \
-    Player.h
+    Player.h \
+    Resources/ui_gamewindow.h
 
 FORMS += \
     Resources/gamewindow.ui
