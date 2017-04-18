@@ -2,19 +2,18 @@
 #define BACKGROUND_H
 
 #include <QWidget>
-#include <Qpainter>
-#include <QTimer>
-#include "Player.h"
+#include <QPainter>
 
-
-class Background : public Player
+class Background
 {
 public:
     Background();
-    void setPosition(int x, int y);
+    void paint(QPainter * qp);
+    void hitCheck();
     void update(Background *background);
-private:
-    QTimer *timer;
+protected:
+    QPixmap pixmap;
+    QRect position;
 };
 
 #endif // BACKGROUND_H

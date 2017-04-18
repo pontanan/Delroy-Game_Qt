@@ -1,18 +1,20 @@
-#include "Background.h"
+#include "background.h"
 
-Background::Background() :Player(QPixmap("Resources/background/background.png"), QRect(0, 0, 2400, 600))
+Background::Background() :pixmap(QPixmap("Resources/background/background.png")), position(QRect(0, 0, 2400, 600))
+{
+}
+
+void Background::paint(QPainter * qp)
+{
+    qp->drawPixmap(position, pixmap);
+}
+
+void Background::hitCheck()
+{
+}
+
+void Background::update(Background *background)
 {
 
 }
 
-void Background::setPosition(int x, int y)
-{
-    position = QRect(x, y, position.width(),position.height());
-}
-/*void Background::update(Background *background)
-{
-    for(int i =0; i <10; i++)
-    {
-        setPosition(i, 0);
-    }
-}*/
