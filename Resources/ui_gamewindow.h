@@ -32,7 +32,7 @@ public:
     {
         if (GameWindow->objectName().isEmpty())
             GameWindow->setObjectName(QStringLiteral("GameWindow"));
-        GameWindow->setEnabled(false);
+        GameWindow->setEnabled(true);
         GameWindow->resize(800, 600);
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
