@@ -26,7 +26,7 @@ void Player::hitCheck()
 	float colnormalY = ydist / distance;
 	float dot = puck->xvel()*colnormalX + puck->yvel()*colnormalY;
 	if (dot < 0)
-		return;  // Rör sig ifrån varandra
+		return;  // Ror sig ifran varandra
 	if (abs(puck->xvel()) < 1.0 && abs(puck->yvel()) < 1.0)
 	{
 		puck->setxvel(-colnormalX * 7);

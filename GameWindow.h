@@ -6,6 +6,7 @@
 #include <QtGui>
 #include "Background.h"
 #include "ground.h"
+#include "maincharacter.h"
 
 
 namespace Ui {
@@ -19,7 +20,7 @@ class GameWindow : public QMainWindow
 public:
 	void paintEvent(QPaintEvent * e);
 	void mouseMoveEvent(QMouseEvent* e);
-	void keyPressEvent(QKeyEvent *e);
+  void keyPressEvent(QKeyEvent *e);
 
 	explicit GameWindow(QWidget *parent = 0);
 	~GameWindow();
@@ -29,6 +30,7 @@ private:
 	QTimer * timer;
       Background background;
       Ground dirt;
+      MainCharacter maincharacter;
 private slots:
     void update();
 };
