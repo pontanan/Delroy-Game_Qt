@@ -1,6 +1,7 @@
 #include "gamewindow.h"
 #include "ui_gamewindow.h"
 #include "QPainter"
+#include <QKeyEvent>
 
 GameWindow::GameWindow(QWidget *parent) :
 	QMainWindow(parent),
@@ -27,9 +28,13 @@ void GameWindow::update()
 void GameWindow::paintEvent(QPaintEvent * e)
 {
 	QPainter qp(this);
-      background.paint(&qp);
+    background.paint(&qp);
+    maincharacter.paint(&qp);
 }
 void GameWindow::mouseMoveEvent(QMouseEvent* e)
 {
 }
+void GameWindow::keyPressEvent(QKeyEvent * e)
+{
 
+}
