@@ -22,22 +22,25 @@ GameWindow::~GameWindow()
 void GameWindow::update()
 {
     //background.update(&background);
+    dirt.update(&dirt);
     repaint();
 }
 
 void GameWindow::paintEvent(QPaintEvent * e)
 {
 	QPainter qp(this);
-    background.paint(&qp);
-    maincharacter.paint(&qp);
+      background.paint(&qp);
+      dirt.paint(&qp);
+      maincharacter.paint(&qp);
+      enemy.paint(&qp);
+      farmer.paint(&qp);
 }
 void GameWindow::mouseMoveEvent(QMouseEvent* e)
 {
-}
-void GameWindow::keyPressEvent(QKeyEvent * e)
-{
 
-void GameWindow::keyPressEvent(QKeyEvent *e)
+}
+
+void GameWindow::keyPressEvent(QKeyEvent * e)
 {
 
 }

@@ -8,7 +8,10 @@ SOURCES += main.cpp \
     GameWindow.cpp \
     Player.cpp \
     Background.cpp \
-    MainCharacter.cpp
+    ground.cpp \
+    MainCharacter.cpp \
+    Enemy.cpp \
+    Farmer.cpp
 
 DISTFILES += \
     DelroyGm.pro.user \
@@ -40,7 +43,10 @@ HEADERS += \
     Player.h \
     Resources/ui_gamewindow.h \
     Background.h \
-    MainCharacter.h
+    ground.h \
+    MainCharacter.h \
+    Enemy.h \
+    Farmer.h
 
 FORMS += \
     Resources/gamewindow.ui

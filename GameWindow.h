@@ -5,8 +5,10 @@
 #include <QTimer>
 #include <QtGui>
 #include "Background.h"
+#include "ground.h"
 #include "maincharacter.h"
-//#include "Ground.h"
+#include "enemy.h"
+#include "Farmer.h"
 
 
 namespace Ui {
@@ -20,7 +22,7 @@ class GameWindow : public QMainWindow
 public:
 	void paintEvent(QPaintEvent * e);
 	void mouseMoveEvent(QMouseEvent* e);
-  void keyPressEvent(QKeyEvent *e);
+    void keyPressEvent(QKeyEvent *e);
 
 	explicit GameWindow(QWidget *parent = 0);
 	~GameWindow();
@@ -28,8 +30,11 @@ public:
 private:
 	Ui::GameWindow *ui;
 	QTimer * timer;
-    Background background;
-    MainCharacter maincharacter;
+      Background background;
+      Ground dirt;
+      MainCharacter maincharacter;
+      Enemy enemy;
+      Farmer farmer;
 private slots:
     void update();
 };

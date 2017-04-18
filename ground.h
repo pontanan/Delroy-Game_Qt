@@ -1,19 +1,19 @@
-#ifndef BACKGROUND_H
-#define BACKGROUND_H
+#ifndef GROUND_H
+#define GROUND_H
 
 #include <QWidget>
 #include <QPainter>
 
-class Background
+class Ground
 {
 public:
-    Background();
+    Ground();
     void paint(QPainter * qp);
     void hitCheck();
-    void update(Background *background);
+    void update(Ground *ground);
 protected:
     QPixmap pixmap;
     QRect position;
 };
 
-#endif // BACKGROUND_H
+#endif // GROUND_H

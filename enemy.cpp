@@ -1,11 +1,11 @@
-#include "maincharacter.h"
+#include "Enemy.h"
 
-MainCharacter::MainCharacter() :Player(QPixmap("Resources/delroy/delroy_right.png"), QRect(50, 468, 32, 32))
+Enemy::Enemy() :Player(QPixmap("Resources/hen/hen_left.png"), QRect(450, 404, 96, 96))
 {
 
 }
 
-void MainCharacter::setPosition(int x, int y)
+void Enemy::setPosition(int x, int y)
 {
     position = QRect(x, y, position.width(),position.height());
 }
