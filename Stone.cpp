@@ -9,3 +9,8 @@ void Stone::setPosition(int x, int y)
 {
     position = QRect(x, y, position.width(),position.height());
 }
+
+void Stone::update(Stone *stone)
+{
+
+}

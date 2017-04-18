@@ -9,13 +9,16 @@ SOURCES += main.cpp \
     Player.cpp \
     Background.cpp \
     ground.cpp \
-    MainCharacter.cpp \
     Enemy.cpp \
     Farmer.cpp \
+    MainCharacter.cpp \
+    Projectile.cpp \
+    Weapon.cpp \
     Obstacles.cpp \
     Box.cpp \
-    Stone.cpp
-    MainCharacter.cpp
+    Stone.cpp \
+    Dirt.cpp \
+    Grass.cpp
 
 DISTFILES += \
     DelroyGm.pro.user \
@@ -39,7 +42,8 @@ DISTFILES += \
     Resources/obstacles/box.png \
     Resources/obstacles/stone.png \
     Resources/weapons/gun_projectile.png \
-    Resources/weapons/pitchfork.png
+    Resources/weapons/pitchfork.png \
+    Resources/weapons/gun.png
 
 HEADERS += \
     GameObject.h \
@@ -48,13 +52,16 @@ HEADERS += \
     Resources/ui_gamewindow.h \
     Background.h \
     ground.h \
-    MainCharacter.h \
     Enemy.h \
     Farmer.h \
+    MainCharacter.h \
+    Projectile.h \
+    Weapon.h \
     Obstacles.h \
     Box.h \
-    Stone.h
-    MainCharacter.h
+    Stone.h \
+    Dirt.h \
+    Grass.h
 
 FORMS += \
     Resources/gamewindow.ui

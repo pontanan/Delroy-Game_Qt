@@ -9,9 +9,12 @@
 #include "maincharacter.h"
 #include "enemy.h"
 #include "Farmer.h"
+#include "Projectile.h"
+#include "Weapon.h"
 #include "Box.h"
 #include "Stone.h"
-
+#include "Dirt.h"
+#include "Grass.h"
 
 namespace Ui {
 	class GameWindow;
@@ -23,7 +26,6 @@ class GameWindow : public QMainWindow
 
 public:
 	void paintEvent(QPaintEvent * e);
-    void keyPressEvent(QKeyEvent *e);
 
 	explicit GameWindow(QWidget *parent = 0);
 	~GameWindow();
@@ -32,14 +34,18 @@ private:
 	Ui::GameWindow *ui;
 	QTimer * timer;
       Background background;
-      Ground dirt;
+      Dirt dirt;
       MainCharacter maincharacter;
       Enemy enemy;
       Farmer farmer;
+      Projectile projectile;
+      Weapon weapon;
       Box box;
       Stone stone;
+      Grass grass;
 private slots:
     void update();
+    void keyPressEvent(QKeyEvent *e);
 };
 
 #endif // GAMEWINDOW_H

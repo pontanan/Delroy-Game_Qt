@@ -7,7 +7,7 @@
 class Ground
 {
 public:
-    Ground();
+    Ground(QPixmap map, QRect rect);
     void paint(QPainter * qp);
     void hitCheck();
     void update(Ground *ground);
