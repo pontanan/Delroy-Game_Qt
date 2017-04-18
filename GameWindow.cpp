@@ -12,7 +12,7 @@ GameWindow::GameWindow(QWidget *parent) :
 	ui->setupUi(this);
 	timer = new QTimer(this);
 	connect(timer, SIGNAL(timeout()), this, SLOT(update()));
-	timer->start(60);
+    timer->start(10);
     setFocusPolicy(Qt::StrongFocus);
 }
 
@@ -26,6 +26,8 @@ void GameWindow::update()
     background.update(&background);
     dirt.update(&dirt);
     maincharacter.update(&maincharacter);
+    projectile.update(&projectile);
+    weapon.update(&weapon);
     repaint();
 }
 
@@ -37,6 +39,8 @@ void GameWindow::paintEvent(QPaintEvent * e)
       maincharacter.paint(&qp);
       enemy.paint(&qp);
       farmer.paint(&qp);
+      projectile.paint(&qp);
+      weapon.paint(&qp);
       box.paint(&qp);
       stone.paint(&qp);
 }
@@ -45,13 +49,17 @@ void GameWindow::keyPressEvent(QKeyEvent * e)
 {
     if(e->key() == Qt::Key_Left)
     {
+        weapon.setSprite(QPixmap("Resources/weapons/gun_left.png"));
         maincharacter.setSprite(QPixmap("Resources/delroy/delroy_left.png"));
         maincharacter.setPosition(maincharacter.getX() - 5, maincharacter.getY());
+        weapon.setPosition(weapon.getX() - 5, weapon.getY());
     }
     if(e->key() == Qt::Key_Right)
     {
+        weapon.setSprite(QPixmap("Resources/weapons/gun_right.png"));
         maincharacter.setSprite(QPixmap("Resources/delroy/delroy_right.png"));
         maincharacter.setPosition(maincharacter.getX() + 5, maincharacter.getY());
+        weapon.setPosition(weapon.getX() + 5, weapon.getY());
     }
 }
 

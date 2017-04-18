@@ -9,6 +9,8 @@
 #include "maincharacter.h"
 #include "enemy.h"
 #include "Farmer.h"
+#include "Projectile.h"
+#include "Weapon.h"
 #include "Box.h"
 #include "Stone.h"
 
@@ -23,7 +25,6 @@ class GameWindow : public QMainWindow
 
 public:
 	void paintEvent(QPaintEvent * e);
-    void keyPressEvent(QKeyEvent *e);
 
 	explicit GameWindow(QWidget *parent = 0);
 	~GameWindow();
@@ -36,10 +37,13 @@ private:
       MainCharacter maincharacter;
       Enemy enemy;
       Farmer farmer;
+      Projectile projectile;
+      Weapon weapon;
       Box box;
       Stone stone;
 private slots:
     void update();
+    void keyPressEvent(QKeyEvent *e);
 };
 
 #endif // GAMEWINDOW_H
