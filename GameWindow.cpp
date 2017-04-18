@@ -33,3 +33,7 @@ void GameWindow::mouseMoveEvent(QMouseEvent* e)
 {
 }
 
+void GameWindow::keyPressEvent(QKeyEvent *e)
+{
+
+}
