@@ -7,6 +7,8 @@
 #include "Background.h"
 #include "ground.h"
 #include "maincharacter.h"
+#include "enemy.h"
+#include "Farmer.h"
 
 
 namespace Ui {
@@ -31,6 +33,8 @@ private:
       Background background;
       Ground dirt;
       MainCharacter maincharacter;
+      Enemy enemy;
+      Farmer farmer;
 private slots:
     void update();
 };

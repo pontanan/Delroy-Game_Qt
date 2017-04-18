@@ -33,6 +33,8 @@ void GameWindow::paintEvent(QPaintEvent * e)
       background.paint(&qp);
       dirt.paint(&qp);
       maincharacter.paint(&qp);
+      enemy.paint(&qp);
+      farmer.paint(&qp);
 }
 void GameWindow::mouseMoveEvent(QMouseEvent* e)
 {

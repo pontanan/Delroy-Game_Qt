@@ -1,11 +1,10 @@
-#include "maincharacter.h"
+#include "Farmer.h"
 
-MainCharacter::MainCharacter() :Player(QPixmap("Resources/delroy/delroy_right.png"), QRect(50, 468, 32, 32))
+Farmer::Farmer() :Player(QPixmap("Resources/farmer/farmer_leg.png"), QRect(600, 0, 200, 500))
 {
 
 }
-
-void MainCharacter::setPosition(int x, int y)
+void Farmer::setPosition(int x, int y)
 {
     position = QRect(x, y, position.width(),position.height());
 }
