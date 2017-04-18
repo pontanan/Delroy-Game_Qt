@@ -19,16 +19,12 @@ GameWindow::~GameWindow()
 
 void GameWindow::update()
 {
-	character.update(&character);
-	ground.update(&ground);
 	repaint();
 }
 
 void GameWindow::paintEvent(QPaintEvent * e)
 {
 	QPainter qp(this);
-	character.paint(&qp);
-	ground.paint(&qp);
 
 }
 void GameWindow::mouseMoveEvent(QMouseEvent* e)
