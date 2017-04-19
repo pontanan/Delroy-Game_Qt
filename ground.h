@@ -7,8 +7,10 @@
 class Ground
 {
 public:
-    Ground();
+    Ground(QPixmap map, QRect rect);
     void paint(QPainter * qp);
+    int getX();
+    int getY();
     void hitCheck();
     void update(Ground *ground);
 protected:

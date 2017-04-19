@@ -13,7 +13,8 @@
 #include "Weapon.h"
 #include "Box.h"
 #include "Stone.h"
-
+#include "Dirt.h"
+#include "Grass.h"
 
 namespace Ui {
 	class GameWindow;
@@ -32,12 +33,9 @@ public:
 private:
 	Ui::GameWindow *ui;
 	QTimer * timer;
-    bool shootLeft;
-    bool shootRight = true;
-    bool firstLeft = true;
-    bool firstRight;
+    bool wRight = true;
       Background background;
-      Ground dirt;
+      Dirt dirt;
       MainCharacter maincharacter;
       Enemy enemy;
       Farmer farmer;
@@ -45,6 +43,7 @@ private:
       Weapon weapon;
       Box box;
       Stone stone;
+      Grass grass;
 private slots:
     void update();
     void keyPressEvent(QKeyEvent *e);
