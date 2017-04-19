@@ -7,7 +7,7 @@ Ground::Ground(QPixmap map, QRect rect) :pixmap(map), position(rect)
 
 void Ground::paint(QPainter * qp)
 {
-    qp->drawPixmap(position, pixmap);
+     qp->drawPixmap(position, pixmap);
 }
 
 int Ground::getX()
