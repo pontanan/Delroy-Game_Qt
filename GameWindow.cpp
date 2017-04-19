@@ -25,9 +25,9 @@ void GameWindow::update()
 {
     background.update(&background);
     dirt.update(&dirt);
-    maincharacter.update(&maincharacter);
+    maincharacter.update(&dirt);
     projectile.update(&projectile);
-    weapon.update(&weapon);
+    weapon.update(&maincharacter, wRight);
     grass.update(&grass);
     enemy.update(&enemy);
     farmer.update(&farmer);
@@ -54,53 +54,42 @@ void GameWindow::paintEvent(QPaintEvent * e)
 void GameWindow::keyPressEvent(QKeyEvent * e)
 {
 
+    //If 'Left-arrowkey' is pressed
     if(e->key() == Qt::Key_Left)
     {
-        //shootLeft = true;
+        wRight = false; //Check if looking left
 
-        if(firstLeft)
-        {
-            weapon.setPosition(weapon.getX() - 27, weapon.getY());
-            firstLeft = false;
-        }
         weapon.setSprite(QPixmap("Resources/weapons/gun_left.png"));
         maincharacter.setSprite(QPixmap("Resources/delroy/delroy_left.png"));
         maincharacter.setPosition(maincharacter.getX() - 5, maincharacter.getY());
         weapon.setPosition(weapon.getX() - 5, weapon.getY());
 
-
-        firstRight = true;
-
     }
+
+    //If 'Right-arrowkey' is pressed
     if(e->key() == Qt::Key_Right)
     {
-        //shootRight = true;
+        wRight = true; //Check if looking right
 
-        if(firstRight)
-        {
-            weapon.setPosition(weapon.getX() + 27, weapon.getY());
-            firstRight = false;
-        }
         weapon.setSprite(QPixmap("Resources/weapons/gun_right.png"));
         maincharacter.setSprite(QPixmap("Resources/delroy/delroy_right.png"));
         maincharacter.setPosition(maincharacter.getX() + 5, maincharacter.getY());
         weapon.setPosition(weapon.getX() + 5, weapon.getY());
 
-
-        firstLeft = true;
-
     }
+
+
+    //If 'X' is pressed
     if(e->key() == Qt::Key_X)
     {
-        if(shootRight)
-        {
-            weapon.shootRight(&projectile);
-        }
-        else if(shootLeft)
-        {
-            weapon.shootLeft(&projectile);
-        }
+        weapon.shootRight(&projectile);
+    }
 
+
+    //If 'Space' is pressed
+    if(e->key() == Qt::Key_Space)
+    {
+        maincharacter.jump();
     }
 }
 

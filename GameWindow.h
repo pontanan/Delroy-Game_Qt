@@ -33,10 +33,7 @@ public:
 private:
 	Ui::GameWindow *ui;
 	QTimer * timer;
-    bool shootLeft;
-    bool shootRight = true;
-    bool firstLeft = true;
-    bool firstRight;
+    bool wRight = true;
       Background background;
       Dirt dirt;
       MainCharacter maincharacter;

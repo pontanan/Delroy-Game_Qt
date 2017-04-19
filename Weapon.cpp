@@ -43,8 +43,27 @@ void Weapon::checkCollision()
 
 }
 
-void Weapon::update(Weapon * weapon)
+void Weapon::update(MainCharacter * maincharacter, bool isRight)
 {
+    int x = position.x();
+    int y = position.y();
+    int mcX = maincharacter->getX();
+    int mcCenterY = maincharacter->getCenterY();
+
+    y = mcCenterY;
+
+    //Check where MainCharacter is looking
+    if(isRight)
+    {
+        x = mcX + 27;
+        setPosition(x, y);
+    }
+    else
+    {
+        x = mcX - 1;
+        setPosition(x, y);
+    }
+
 
 }
 

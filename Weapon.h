@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QPainter>
 #include "Projectile.h"
+#include "maincharacter.h"
 
 class Weapon
 {
@@ -16,7 +17,7 @@ public:
     void shootRight(Projectile *bullet);
     void shootLeft(Projectile *bullet);
     void checkCollision();
-    void update(Weapon * weapon);
+    void update(MainCharacter * maincharacter, bool isRight);
     void paint(QPainter * qp);
     virtual ~Weapon();
 protected:
