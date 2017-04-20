@@ -26,7 +26,7 @@ void GameWindow::update()
     background.update(&background);
     dirt.update(&dirt);
     maincharacter.update(&dirt);
-    projectile.update(&projectile);
+    projectile.update(&projectile, &box);
     weapon.update(&maincharacter, wRight);
     grass.update(&grass);
     enemy.update(&enemy);

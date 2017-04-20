@@ -9,6 +9,10 @@ class Box: public Obstacles
 {
 public:
     Box();
+    int getX();
+    int getY();
+    int getWidth();
+    int getHeight();
     void setPosition(int x, int y);
     void update(Box *box);
 private:
