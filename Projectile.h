@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QPainter>
 #include <QTimer>
+#include "Box.h"
 
 class Projectile : public QObject
 {
@@ -15,7 +16,7 @@ public:
     int getY();
     void setPosition(int x, int y);
     void checkCollision();
-    void update(Projectile * projectile);
+    void update(Projectile * projectile, Box *box);
     void paint(QPainter * qp);
     virtual ~Projectile();
 

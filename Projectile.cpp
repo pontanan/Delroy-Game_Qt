@@ -28,12 +28,14 @@ void Projectile::checkCollision()
 
 }
 
-void Projectile::update(Projectile *projectile)
+void Projectile::update(Projectile *projectile, Box *box)
 {
-    if(position.x() <= 0 || position.y() >= 800)
-    {
-        projectile->~Projectile();
-    }
+    if(position.x() <= 0 || position.x() >= 800)
+        projectile->hidden = true;
+
+    if(position.x() >= box->getX() && position.x() <= (box->getX() + box->getWidth()))
+        if(position.y() >= box->getY() && position.y() <= (box->getY() + box->getHeight()))
+            projectile->hidden = true;
 
     if(hidden == true)
     {
