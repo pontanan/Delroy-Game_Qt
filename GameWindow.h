@@ -4,6 +4,10 @@
 #include <QMainWindow>
 #include <QTimer>
 #include <QtGui>
+#include <QKeyEvent>
+#include <QGraphicsItem>
+#include <QPainter>
+#include <QVector>
 #include "Background.h"
 #include "ground.h"
 #include "maincharacter.h"
@@ -33,13 +37,13 @@ public:
 private:
 	Ui::GameWindow *ui;
 	QTimer * timer;
+    QVector<Projectile> bulletVec;
     bool wRight = true;
       Background background;
       Dirt dirt;
       MainCharacter maincharacter;
       Enemy enemy;
       Farmer farmer;
-      Projectile projectile;
       Weapon weapon;
       Box box;
       Stone stone;

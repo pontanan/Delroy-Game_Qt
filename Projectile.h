@@ -6,9 +6,8 @@
 #include <QTimer>
 #include "Box.h"
 
-class Projectile : public QObject
+class Projectile
 {
-    Q_OBJECT
 
 public:
     Projectile();
@@ -16,18 +15,17 @@ public:
     int getY();
     void setPosition(int x, int y);
     void checkCollision();
-    void update(Projectile * projectile, Box *box);
+    void move();
+    void update(Box *box);
     void paint(QPainter * qp);
     virtual ~Projectile();
 
     bool hidden = true;
-public slots:
-    void move();
 protected:
     QPixmap pixmap;
     QRect position;
 private:
-    QTimer *timer;
+    bool isMoving;
 };
 
 #endif // PROJECTILE_H

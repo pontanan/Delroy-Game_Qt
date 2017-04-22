@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QPainter>
+#include <QVector>
 #include "Projectile.h"
 #include "maincharacter.h"
 
@@ -14,7 +15,7 @@ public:
     int getY();
     void setPosition(int x, int y);
     void setSprite(QPixmap newPixmap);
-    void shootRight(Projectile *bullet);
+    void shootRight(QVector<Projectile> *bulletVec);
     void shootLeft(Projectile *bullet);
     void checkCollision();
     void update(MainCharacter * maincharacter, bool isRight);
