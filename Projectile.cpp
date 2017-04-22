@@ -19,21 +19,21 @@ void Projectile::setPosition(int x, int y)
     position = QRect(x, y, position.width(), position.height());
 }
 
-void Projectile::checkCollision()
-{
-
-}
-
-void Projectile::update(Box *box)
+void Projectile::checkCollision(Box *box)
 {
     //Check if outside window
     if(position.x() <= 0 || position.x() >= 800)
     { isMoving = false; hidden = true; }
 
-    //Check if has hit Box
+    //Check if has hit box
     if(position.x() >= box->getX() && position.x() <= (box->getX() + box->getWidth()))
         if(position.y() >= box->getY() && position.y() <= (box->getY() + box->getHeight()))
         { isMoving = false; hidden = true; }
+}
+
+void Projectile::update(Box *box, bool isRight)
+{
+    checkCollision(box);
 
 
     //Check if Hidden is true
@@ -49,8 +49,16 @@ void Projectile::update(Box *box)
     //Check if moving
     if(isMoving)
     {
-        hidden = false;
-        setPosition(position.x() + 10, position.y());
+        if(isRight)
+        {
+            hidden = false;
+            setPosition(position.x() + 10, position.y());
+        }
+        else
+        {
+            hidden = false;
+            setPosition(position.x() - 10, position.y());
+        }
     }
 
 }

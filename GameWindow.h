@@ -39,6 +39,7 @@ private:
 	QTimer * timer;
     QVector<Projectile> bulletVec;
     bool wRight = true;
+    bool killProjectile = false;
       Background background;
       Dirt dirt;
       MainCharacter maincharacter;

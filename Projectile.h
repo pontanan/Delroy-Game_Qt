@@ -14,9 +14,9 @@ public:
     int getX();
     int getY();
     void setPosition(int x, int y);
-    void checkCollision();
+    void checkCollision(Box *box);
     void move();
-    void update(Box *box);
+    void update(Box *box, bool isRight);
     void paint(QPainter * qp);
     virtual ~Projectile();
 
