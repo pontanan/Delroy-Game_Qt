@@ -24,16 +24,16 @@ void Weapon::setSprite(QPixmap newPixmap)
     pixmap = newPixmap;
 }
 
-void Weapon::shootRight(Projectile *bullet)
+void Weapon::shootRight(QVector<Projectile> *bulletVec)
 {
-    bullet->hidden = false;
-    bullet->setPosition(position.right(), position.top());
-    bullet->move();
+    Projectile bullet;
+    bullet.setPosition(position.right(), position.top());
+    bulletVec->push_back(bullet);
+    bullet.move();
 }
 
 void Weapon::shootLeft(Projectile *bullet)
 {
-    bullet->hidden = false;
     bullet->setPosition(position.left(), position.top());
     bullet->move();
 }

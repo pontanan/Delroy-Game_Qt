@@ -1,8 +1,5 @@
 #include "gamewindow.h"
 #include "ui_gamewindow.h"
-#include "QPainter"
-#include <QKeyEvent>
-#include <QGraphicsItem>
 
 GameWindow::GameWindow(QWidget *parent) :
 	QMainWindow(parent),
@@ -26,13 +23,21 @@ void GameWindow::update()
     background.update(&background);
     dirt.update(&dirt);
     maincharacter.update(&dirt);
-    projectile.update(&projectile, &box);
     weapon.update(&maincharacter, wRight);
     grass.update(&grass);
     enemy.update(&enemy);
     farmer.update(&farmer);
     box.update(&box);
     stone.update(&stone);
+
+    if(bulletVec.size() > 0)
+    {
+        for(int i = 0; i < bulletVec.size();i++)
+        {
+            bulletVec[i].update(&box);
+        }
+    }
+
     repaint();
 }
 
@@ -44,11 +49,18 @@ void GameWindow::paintEvent(QPaintEvent * e)
       maincharacter.paint(&qp);
       enemy.paint(&qp);
       farmer.paint(&qp);
-      projectile.paint(&qp);
       weapon.paint(&qp);
       box.paint(&qp);
       stone.paint(&qp);
       grass.paint(&qp);
+
+      if(bulletVec.size() > 0)
+      {
+          for(int i = 0; i < bulletVec.size();i++)
+          {
+              bulletVec[i].paint(&qp);
+          }
+      }
 }
 
 void GameWindow::keyPressEvent(QKeyEvent * e)
@@ -82,7 +94,7 @@ void GameWindow::keyPressEvent(QKeyEvent * e)
     //If 'X' is pressed
     if(e->key() == Qt::Key_X)
     {
-        weapon.shootRight(&projectile);
+        weapon.shootRight(&bulletVec);
     }
 
 
