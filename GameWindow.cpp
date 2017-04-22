@@ -20,6 +20,9 @@ GameWindow::~GameWindow()
 
 void GameWindow::update()
 {
+    if(bulletVec.begin() == nullptr)
+        bulletVec.erase(bulletVec.begin());
+
     background.update(&background);
     dirt.update(&dirt);
     maincharacter.update(&dirt);
@@ -34,7 +37,14 @@ void GameWindow::update()
     {
         for(int i = 0; i < bulletVec.size();i++)
         {
-            bulletVec[i].update(&box);
+            bulletVec[i].update(&box, wRight);
+
+            //Ej implementerat
+            if(killProjectile)
+            {
+                bulletVec.erase(bulletVec.begin() + i);
+                qDebug() << "Bullet Killed";
+            }
         }
     }
 
@@ -94,7 +104,10 @@ void GameWindow::keyPressEvent(QKeyEvent * e)
     //If 'X' is pressed
     if(e->key() == Qt::Key_X)
     {
-        weapon.shootRight(&bulletVec);
+        if(wRight)
+            weapon.shootRight(&bulletVec);
+        else
+            weapon.shootLeft(&bulletVec);
     }
 
 

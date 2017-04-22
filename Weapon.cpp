@@ -32,10 +32,12 @@ void Weapon::shootRight(QVector<Projectile> *bulletVec)
     bullet.move();
 }
 
-void Weapon::shootLeft(Projectile *bullet)
+void Weapon::shootLeft(QVector<Projectile> *bulletVec)
 {
-    bullet->setPosition(position.left(), position.top());
-    bullet->move();
+    Projectile bullet;
+    bullet.setPosition(position.left(), position.top());
+    bulletVec->push_back(bullet);
+    bullet.move();
 }
 
 void Weapon::checkCollision()
