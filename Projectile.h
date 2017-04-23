@@ -4,7 +4,7 @@
 #include <QWidget>
 #include <QPainter>
 #include <QTimer>
-#include "Box.h"
+//#include "Box.h"
 
 class Projectile
 {
@@ -14,18 +14,16 @@ public:
     int getX();
     int getY();
     void setPosition(int x, int y);
-    void checkCollision(Box *box);
+    void checkCollision(/*Box *box*/ bool **killProjectile);
     void move();
-    void update(Box *box, bool isRight);
+    void update(/*Box *box,*/ bool isRight, bool *killProjectile);
     void paint(QPainter * qp);
     virtual ~Projectile();
 
-    bool hidden = true;
+    bool isMoving;
 protected:
     QPixmap pixmap;
     QRect position;
-private:
-    bool isMoving;
 };
 
 #endif // PROJECTILE_H

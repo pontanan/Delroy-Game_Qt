@@ -10,7 +10,8 @@ void Stone::setPosition(int x, int y)
     position = QRect(x, y, position.width(),position.height());
 }
 
-void Stone::update(Stone *stone)
+void Stone::update(MainCharacter *mc, Projectile *bullet, bool *killProjectile)
 {
-
+    hitCheck(bullet, &killProjectile);
+    hitCheck(mc);
 }
