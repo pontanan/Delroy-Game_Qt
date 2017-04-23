@@ -1,13 +1,16 @@
 # Revenge of Delroy ”the potato”
 
+### Hur spelar jag?
+**Högerpil**: Gå åt höger
+
+**Vänsterpil**: Gå åt vänster
+
+**Mellanslag**: Hoppa
+
+**X**: Skjut
+
 ## Beskrivning
 Delroy’s familj blir tagna och uppätna av bonden. Delroy vill döda bonden.
-
-## Hur spelar jag?
-**Högerpil**: Gå åt höger
-**Vänsterpil**: Gå åt vänster
-**Mellanslag**: Hoppa
-**X**: Skjut
 
 ## Funktionalitet
 
