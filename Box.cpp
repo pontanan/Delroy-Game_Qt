@@ -30,7 +30,8 @@ void Box::setPosition(int x, int y)
     position = QRect(x, y, position.width(),position.height());
 }
 
-void Box::update(Box *box)
+void Box::update(MainCharacter *mc, Projectile *bullet, bool *killProjectile)
 {
-
+    hitCheck(bullet, &killProjectile);
+    hitCheck(mc);
 }

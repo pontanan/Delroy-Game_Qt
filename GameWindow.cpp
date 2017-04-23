@@ -20,9 +20,6 @@ GameWindow::~GameWindow()
 
 void GameWindow::update()
 {
-    if(bulletVec.begin() == nullptr)
-        bulletVec.erase(bulletVec.begin());
-
     background.update(&background);
     dirt.update(&dirt);
     maincharacter.update(&dirt);
@@ -30,20 +27,23 @@ void GameWindow::update()
     grass.update(&grass);
     enemy.update(&enemy);
     farmer.update(&farmer);
-    box.update(&box);
-    stone.update(&stone);
+
+
 
     if(bulletVec.size() > 0)
     {
         for(int i = 0; i < bulletVec.size();i++)
         {
-            bulletVec[i].update(&box, wRight);
+            stone.update(&maincharacter, &bulletVec[i], &killProjectile);
+            box.update(&maincharacter, &bulletVec[i], &killProjectile);
+            bulletVec[i].update(/*&box,*/ wRight, &killProjectile);
 
-            //Ej implementerat
+            //Kill projectile
             if(killProjectile)
             {
                 bulletVec.erase(bulletVec.begin() + i);
-                qDebug() << "Bullet Killed";
+                killProjectile = false;
+                qDebug() << "Bullet " << i << " Killed";
             }
         }
     }
@@ -79,7 +79,7 @@ void GameWindow::keyPressEvent(QKeyEvent * e)
     //If 'Left-arrowkey' is pressed
     if(e->key() == Qt::Key_Left)
     {
-        wRight = false; //Check if looking left
+        wRight = false; //Character is looking left
 
         weapon.setSprite(QPixmap("Resources/weapons/gun_left.png"));
         maincharacter.setSprite(QPixmap("Resources/delroy/delroy_left.png"));
@@ -91,7 +91,7 @@ void GameWindow::keyPressEvent(QKeyEvent * e)
     //If 'Right-arrowkey' is pressed
     if(e->key() == Qt::Key_Right)
     {
-        wRight = true; //Check if looking right
+        wRight = true; //Character is looking right
 
         weapon.setSprite(QPixmap("Resources/weapons/gun_right.png"));
         maincharacter.setSprite(QPixmap("Resources/delroy/delroy_right.png"));
@@ -104,10 +104,7 @@ void GameWindow::keyPressEvent(QKeyEvent * e)
     //If 'X' is pressed
     if(e->key() == Qt::Key_X)
     {
-        if(wRight)
-            weapon.shootRight(&bulletVec);
-        else
-            weapon.shootLeft(&bulletVec);
+        weapon.shoot(&bulletVec, wRight);
     }
 
 

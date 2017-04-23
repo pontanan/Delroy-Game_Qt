@@ -19,46 +19,29 @@ void Projectile::setPosition(int x, int y)
     position = QRect(x, y, position.width(), position.height());
 }
 
-void Projectile::checkCollision(Box *box)
+void Projectile::checkCollision(/*Box *box*/ bool **killProjectile)
 {
     //Check if outside window
     if(position.x() <= 0 || position.x() >= 800)
-    { isMoving = false; hidden = true; }
-
-    //Check if has hit box
-    if(position.x() >= box->getX() && position.x() <= (box->getX() + box->getWidth()))
-        if(position.y() >= box->getY() && position.y() <= (box->getY() + box->getHeight()))
-        { isMoving = false; hidden = true; }
+    { isMoving = false; **killProjectile = true;}
 }
 
-void Projectile::update(Box *box, bool isRight)
+void Projectile::move()
 {
-    checkCollision(box);
+    isMoving = true;
+}
 
-
-    //Check if Hidden is true
-    if(hidden == true)
-    {
-        position = QRect(position.x(), position.y(), 0, 0);
-    }
-    else if(hidden == false)
-    {
-        position = QRect(position.x(), position.y(), 2, 2);
-    }
+void Projectile::update(bool isRight, bool *killProjectile)
+{
+    checkCollision(&killProjectile);
 
     //Check if moving
     if(isMoving)
     {
         if(isRight)
-        {
-            hidden = false;
             setPosition(position.x() + 10, position.y());
-        }
         else
-        {
-            hidden = false;
             setPosition(position.x() - 10, position.y());
-        }
     }
 
 }
@@ -70,9 +53,4 @@ void Projectile::paint(QPainter * qp)
 
 Projectile::~Projectile()
 {
-}
-
-void Projectile::move()
-{
-    isMoving = true;
 }

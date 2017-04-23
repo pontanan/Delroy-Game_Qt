@@ -15,8 +15,7 @@ public:
     int getY();
     void setPosition(int x, int y);
     void setSprite(QPixmap newPixmap);
-    void shootRight(QVector<Projectile> *bulletVec);
-    void shootLeft(QVector<Projectile> *bulletVec);
+    void shoot(QVector<Projectile> *bulletVec, bool isRight);
     void checkCollision();
     void update(MainCharacter * maincharacter, bool isRight);
     void paint(QPainter * qp);
