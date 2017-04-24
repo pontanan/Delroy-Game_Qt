@@ -1,4 +1,4 @@
-# Revenge of Delroy ”the potato”
+# **Revenge of Delroy ”the potato”**
 
 ## Hur spelar jag?
 **Högerpil**: Gå åt höger
