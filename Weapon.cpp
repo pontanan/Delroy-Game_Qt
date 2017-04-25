@@ -24,19 +24,21 @@ void Weapon::setSprite(QPixmap newPixmap)
     pixmap = newPixmap;
 }
 
-void Weapon::shoot(QVector<Projectile> *bulletVec, bool isRight)
+void Weapon::shoot(QVector<Projectile> *bulletVec, int mcDirection)
 {
     //Create Bullet
     Projectile bullet;
 
     //Check direction
-    if(isRight)
+    if(mcDirection == 0)
         bullet.setPosition(position.right(), position.top());
     else
         bullet.setPosition(position.left(), position.top());
 
-    bulletVec->push_back(bullet);
-    bullet.move();
+    bullet.setDirection(mcDirection); //Set Bullet direction to MainCharacter direction
+
+    bulletVec->push_back(bullet); //Push in the new Bullet into the Bullet-vector
+    bullet.move(); //Start moving proccess for Bullet
 }
 
 void Weapon::checkCollision()
@@ -44,7 +46,7 @@ void Weapon::checkCollision()
 
 }
 
-void Weapon::update(MainCharacter * maincharacter, bool isRight)
+void Weapon::update(MainCharacter * maincharacter, int mcDirection)
 {
     int x = position.x();
     int y = position.y();
@@ -53,8 +55,8 @@ void Weapon::update(MainCharacter * maincharacter, bool isRight)
 
     y = mcCenterY;
 
-    //Check where MainCharacter is looking
-    if(isRight)
+    //Check MainCharacter direction
+    if(mcDirection == 0)
     {
         x = mcX + 27;
         setPosition(x, y);

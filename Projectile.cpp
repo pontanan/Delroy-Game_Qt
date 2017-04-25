@@ -19,7 +19,12 @@ void Projectile::setPosition(int x, int y)
     position = QRect(x, y, position.width(), position.height());
 }
 
-void Projectile::checkCollision(/*Box *box*/ bool **killProjectile)
+void Projectile::setDirection(int newDirection)
+{
+    direction = newDirection;
+}
+
+void Projectile::checkCollision(bool **killProjectile)
 {
     //Check if outside window
     if(position.x() <= 0 || position.x() >= 800)
@@ -31,17 +36,17 @@ void Projectile::move()
     isMoving = true;
 }
 
-void Projectile::update(bool isRight, bool *killProjectile)
+void Projectile::update(bool *killProjectile)
 {
     checkCollision(&killProjectile);
 
     //Check if moving
     if(isMoving)
     {
-        if(isRight)
-            setPosition(position.x() + 10, position.y());
+        if(direction == 0)
+            setPosition(position.x() + xVel, position.y());
         else
-            setPosition(position.x() - 10, position.y());
+            setPosition(position.x() - xVel, position.y());
     }
 
 }

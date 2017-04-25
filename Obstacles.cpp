@@ -18,8 +18,15 @@ void Obstacles::hitCheck(Projectile *bullet, bool **killProjectile)
 
 void Obstacles::hitCheck(MainCharacter *mc)
 {
-    if(mc->getX() >= position.x() && mc->getX() <= (position.x() + position.width()))
+    //Check if character is inside objects X
+    if(mc->getX() + mc->getWidth() >= position.x() && mc->getX() + mc->getWidth() <= (position.x() + position.width()))
+    {
+        //Check if character is inside objects Y
         if(mc->getY() >= position.y() && mc->getY() <= (position.y() + position.height()))
         {
+            if(mc->isJumping)
+                mc->isJumping = false;
+            mc->setPosition(mc->getX() - (mc->getX() + mc->getWidth() - position.x()), position.bottom() - (mc->getHeight() - 1));
         }
+    }
 }

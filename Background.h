@@ -9,7 +9,6 @@ class Background
 public:
     Background();
     void paint(QPainter * qp);
-    void hitCheck();
     void update(Background *background);
 protected:
     QPixmap pixmap;

@@ -14,9 +14,10 @@ public:
     int getX();
     int getY();
     void setPosition(int x, int y);
-    void checkCollision(/*Box *box*/ bool **killProjectile);
+    void setDirection(int newDirection);
+    void checkCollision(bool **killProjectile);
     void move();
-    void update(/*Box *box,*/ bool isRight, bool *killProjectile);
+    void update(bool *killProjectile);
     void paint(QPainter * qp);
     virtual ~Projectile();
 
@@ -24,6 +25,9 @@ public:
 protected:
     QPixmap pixmap;
     QRect position;
+private:
+    float xVel = 10;
+    int direction = 0;
 };
 
 #endif // PROJECTILE_H

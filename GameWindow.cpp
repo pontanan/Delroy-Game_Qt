@@ -22,13 +22,11 @@ void GameWindow::update()
 {
     background.update(&background);
     dirt.update(&dirt);
-    maincharacter.update(&dirt);
-    weapon.update(&maincharacter, wRight);
     grass.update(&grass);
     enemy.update(&enemy);
     farmer.update(&farmer);
-
-
+    maincharacter.update(&dirt);
+    weapon.update(&maincharacter, maincharacter.getDirection());
 
     if(bulletVec.size() > 0)
     {
@@ -36,7 +34,7 @@ void GameWindow::update()
         {
             stone.update(&maincharacter, &bulletVec[i], &killProjectile);
             box.update(&maincharacter, &bulletVec[i], &killProjectile);
-            bulletVec[i].update(/*&box,*/ wRight, &killProjectile);
+            bulletVec[i].update(&killProjectile);
 
             //Kill projectile
             if(killProjectile)
@@ -47,6 +45,11 @@ void GameWindow::update()
             }
         }
     }
+    else
+    {
+        stone.update(&maincharacter);
+        box.update(&maincharacter);
+    }
 
     repaint();
 }
@@ -56,13 +59,13 @@ void GameWindow::paintEvent(QPaintEvent * e)
 	QPainter qp(this);
       background.paint(&qp);
       dirt.paint(&qp);
-      maincharacter.paint(&qp);
       enemy.paint(&qp);
       farmer.paint(&qp);
-      weapon.paint(&qp);
       box.paint(&qp);
       stone.paint(&qp);
       grass.paint(&qp);
+      maincharacter.paint(&qp);
+      weapon.paint(&qp);
 
       if(bulletVec.size() > 0)
       {
@@ -79,24 +82,26 @@ void GameWindow::keyPressEvent(QKeyEvent * e)
     //If 'Left-arrowkey' is pressed
     if(e->key() == Qt::Key_Left)
     {
-        wRight = false; //Character is looking left
+        maincharacter.setDirection(1);
+        maincharacter.setXVelocity(5);
 
         weapon.setSprite(QPixmap("Resources/weapons/gun_left.png"));
         maincharacter.setSprite(QPixmap("Resources/delroy/delroy_left.png"));
-        maincharacter.setPosition(maincharacter.getX() - 5, maincharacter.getY());
-        weapon.setPosition(weapon.getX() - 5, weapon.getY());
+        maincharacter.setPosition(maincharacter.getX() - maincharacter.getXVel(), maincharacter.getY());
+        weapon.setPosition(weapon.getX() - maincharacter.getXVel(), weapon.getY());
 
     }
 
     //If 'Right-arrowkey' is pressed
     if(e->key() == Qt::Key_Right)
     {
-        wRight = true; //Character is looking right
+        maincharacter.setDirection(0);
+        maincharacter.setXVelocity(5);
 
         weapon.setSprite(QPixmap("Resources/weapons/gun_right.png"));
         maincharacter.setSprite(QPixmap("Resources/delroy/delroy_right.png"));
-        maincharacter.setPosition(maincharacter.getX() + 5, maincharacter.getY());
-        weapon.setPosition(weapon.getX() + 5, weapon.getY());
+        maincharacter.setPosition(maincharacter.getX() + maincharacter.getXVel(), maincharacter.getY());
+        weapon.setPosition(weapon.getX() + maincharacter.getXVel(), weapon.getY());
 
     }
 
@@ -104,7 +109,7 @@ void GameWindow::keyPressEvent(QKeyEvent * e)
     //If 'X' is pressed
     if(e->key() == Qt::Key_X)
     {
-        weapon.shoot(&bulletVec, wRight);
+        weapon.shoot(&bulletVec, maincharacter.getDirection());
     }
 
 
@@ -112,6 +117,19 @@ void GameWindow::keyPressEvent(QKeyEvent * e)
     if(e->key() == Qt::Key_Space)
     {
         maincharacter.jump();
+    }
+}
+
+void GameWindow::keyReleaseEvent(QKeyEvent *e)
+{
+    if(e->key() == Qt::Key_Right)
+    {
+        maincharacter.setXVelocity(0);
+    }
+
+    if(e->key() == Qt::Key_Left)
+    {
+        maincharacter.setXVelocity(0);
     }
 }
 

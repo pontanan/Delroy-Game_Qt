@@ -15,3 +15,8 @@ void Stone::update(MainCharacter *mc, Projectile *bullet, bool *killProjectile)
     hitCheck(bullet, &killProjectile);
     hitCheck(mc);
 }
+
+void Stone::update(MainCharacter *mc)
+{
+    hitCheck(mc);
+}

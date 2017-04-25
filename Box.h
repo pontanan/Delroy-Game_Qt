@@ -15,6 +15,7 @@ public:
     int getHeight();
     void setPosition(int x, int y);
     void update(MainCharacter *mc, Projectile *bullet, bool *killProjectile);
+    void update(MainCharacter *mc);
 private:
     QTimer *timer;
 };

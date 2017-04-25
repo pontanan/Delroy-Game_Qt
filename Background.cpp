@@ -9,10 +9,6 @@ void Background::paint(QPainter * qp)
     qp->drawPixmap(position, pixmap);
 }
 
-void Background::hitCheck()
-{
-}
-
 void Background::update(Background *background)
 {
 
