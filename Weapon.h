@@ -15,9 +15,9 @@ public:
     int getY();
     void setPosition(int x, int y);
     void setSprite(QPixmap newPixmap);
-    void shoot(QVector<Projectile> *bulletVec, bool isRight);
+    void shoot(QVector<Projectile> *bulletVec, int mcDirection);
     void checkCollision();
-    void update(MainCharacter * maincharacter, bool isRight);
+    void update(MainCharacter * maincharacter, int mcDirection);
     void paint(QPainter * qp);
     virtual ~Weapon();
 protected:

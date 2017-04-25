@@ -38,7 +38,6 @@ private:
 	Ui::GameWindow *ui;
 	QTimer * timer;
     QVector<Projectile> bulletVec;
-    bool wRight = true;
     bool killProjectile = false;
       Background background;
       Dirt dirt;
@@ -52,6 +51,7 @@ private:
 private slots:
     void update();
     void keyPressEvent(QKeyEvent *e);
+    void keyReleaseEvent(QKeyEvent *e);
 };
 
 #endif // GAMEWINDOW_H

@@ -35,3 +35,9 @@ void Box::update(MainCharacter *mc, Projectile *bullet, bool *killProjectile)
     hitCheck(bullet, &killProjectile);
     hitCheck(mc);
 }
+
+void Box::update(MainCharacter *mc)
+{
+    hitCheck(mc);
+}
+

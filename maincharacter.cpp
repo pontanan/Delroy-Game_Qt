@@ -35,6 +35,26 @@ int MainCharacter::getCenterY()
     return position.center().y();
 }
 
+int MainCharacter::getXVel()
+{
+    return xVel;
+}
+
+int MainCharacter::getDirection()
+{
+    return direction;
+}
+
+void MainCharacter::setXVelocity(float newVelocity)
+{
+    xVel = newVelocity;
+}
+
+void MainCharacter::setDirection(int newDirection)
+{
+    direction = newDirection;
+}
+
 void MainCharacter::setPosition(int x, int y)
 {
     position = QRect(x, y, position.width(),position.height());
@@ -59,12 +79,18 @@ void MainCharacter::update(Ground *ground)
     if (isJumping)
     {
          yVel += gravity;
-         setPosition(position.x(), position.y() + yVel);
-             if (position.y() > ground->getY())
-             {
-                 setPosition(position.x(), ground->getY() - position.height());
-                 yVel = 0;
-                 isJumping = false;
-             }
+
+         //Check direction | 0 -> Right, 1 -> Left
+         if(direction == 0)
+            setPosition(position.x() + xVel, position.y() + yVel);
+         else
+             setPosition(position.x() - xVel, position.y() + yVel);
+
+         if (position.y() >= ground->getY() - 5)
+         {
+             setPosition(position.x(), ground->getY() - position.height());
+             yVel = 0;
+             isJumping = false;
+         }
      }
 }

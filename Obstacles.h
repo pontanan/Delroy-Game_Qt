@@ -3,8 +3,10 @@
 
 #include <QWidget>
 #include <QPainter>
+#include <QDebug>
 #include "Projectile.h"
 #include "maincharacter.h"
+#include "Weapon.h"
 
 class Obstacles
 {
