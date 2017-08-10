@@ -32,12 +32,34 @@ void Box::setPosition(int x, int y)
 
 void Box::update(MainCharacter *mc, Projectile *bullet, bool *killProjectile)
 {
-    hitCheck(bullet, &killProjectile);
-    hitCheck(mc);
+    if( hitCheck(bullet) )
+    {
+        bullet->isMoving = false;
+        *killProjectile = true;
+    }
+    if( hitCheck(mc) )
+    {
+        if(mc->isJumping)
+            mc->isJumping = false;
+
+        if(mc->getDirection() == 0)
+            mc->setPosition(position.x() - mc->getWidth(), position.bottom() - (mc->getHeight() - 1));
+        else
+            mc->setPosition(position.x() + position.width(), position.bottom() - (mc->getHeight() - 1));
+    }
 }
 
 void Box::update(MainCharacter *mc)
 {
-    hitCheck(mc);
+    if( hitCheck(mc) )
+    {
+        if(mc->isJumping)
+            mc->isJumping = false;
+
+        if(mc->getDirection() == 0)
+            mc->setPosition(position.x() - mc->getWidth(), position.bottom() - (mc->getHeight() - 1));
+        else
+            mc->setPosition(position.x() + position.width(), position.bottom() - (mc->getHeight() - 1));
+    }
 }
 
