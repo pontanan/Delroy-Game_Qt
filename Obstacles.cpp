@@ -9,53 +9,44 @@ void Obstacles::paint(QPainter * qp)
     qp->drawPixmap(position, pixmap);
 }
 
-void Obstacles::hitCheck(Projectile *bullet, bool **killProjectile)
+bool Obstacles::hitCheck(Projectile *bullet)
 {
-    if(bullet->getX() >= position.x() && bullet->getX() <= (position.x() + position.width()))
-        if(bullet->getY() >= position.y() && bullet->getY() <= (position.y() + position.height()))
-        { bullet->isMoving = false; **killProjectile = true; }
+    //Check if characters left is not colliding with the objects right
+    if(bullet->getX() > position.x() + position.width())
+        return false;
+
+    //Check if characters right is not colliding with the objects left
+    if(bullet->getX() + bullet->getWidth() < position.x())
+        return false;
+
+    //Check if characters top is not colliding with the objects bottom
+    if(bullet->getY() > position.y() + position.height())
+        return false;
+
+    //Check if characters bottom is not colliding with the objects top
+    if(bullet->getY() + bullet->getHeight() < position.y())
+        return false;
+
+    return true;
 }
 
-void Obstacles::hitCheck(MainCharacter *mc)
+bool Obstacles::hitCheck(MainCharacter *mc)
 {
-    //Check if characters left X is inside objects X
-    if(mc->getX() >= position.x() && mc->getX() <= position.x() + position.width())
-    {
-        //Check if characters top Y is inside objects Y
-        if(mc->getY() >= position.y() && mc->getY() <= position.y() + position.height())
-        {
-            if(mc->isJumping)
-                mc->isJumping = false;
-            mc->setPosition(mc->getX() + (position.x() + position.width() - mc->getX()), position.bottom() - (mc->getHeight() - 1));
-        }
+    //Check if characters left is not colliding with the objects right
+    if(mc->getX() > position.x() + position.width())
+        return false;
 
-        //Check if characters bottom Y is inside objects Y
-        if(mc->getY() + mc->getHeight() >= position.y() && mc->getY() + mc->getHeight() <= position.y() + position.height())
-        {
-            if(mc->isJumping)
-                mc->isJumping = false;
-            mc->setPosition(mc->getX() + (position.x() + position.width() - mc->getX()), position.bottom() - (mc->getHeight() - 1));
-        }
-    }
+    //Check if characters right is not colliding with the objects left
+    if(mc->getX() + mc->getWidth() < position.x())
+        return false;
 
-    //Check if characters right X is inside objects X
-    if(mc->getX() + mc->getWidth() >= position.x() && mc->getX() + mc->getWidth() <= position.x() + position.width())
-    {
-        //Check if character is inside objects Y
-        if(mc->getY() >= position.y() && mc->getY() <= position.y() + position.height())
-        {
-            if(mc->isJumping)
-                mc->isJumping = false;
-            //mc->setPosition(mc->getX() - (mc->getX() + mc->getWidth() - position.x()), position.bottom() - (mc->getHeight() - 1));
-            mc->setPosition(mc->getX() - (mc->getX() + mc->getWidth() - position.x()), position.bottom() - (mc->getHeight() - 1));
-        }
+    //Check if characters top is not colliding with the objects bottom
+    if(mc->getY() > position.y() + position.height())
+        return false;
 
-        //Check if character is inside objects Y
-        if(mc->getY() + mc->getHeight() >= position.y() && mc->getY() + mc->getHeight() <= position.y() + position.height())
-        {
-            if(mc->isJumping)
-                mc->isJumping = false;
-            mc->setPosition(mc->getX() - (mc->getX() + mc->getWidth() - position.x()), position.bottom() - (mc->getHeight() - 1));
-        }
-    }
+    //Check if characters bottom is not colliding with the objects top
+    if(mc->getY() + mc->getHeight() < position.y())
+        return false;
+
+    return true;
 }

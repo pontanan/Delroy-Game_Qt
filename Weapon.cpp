@@ -51,11 +51,11 @@ void Weapon::update(MainCharacter * maincharacter, int mcDirection)
     int x = position.x();
     int y = position.y();
     int mcX = maincharacter->getX();
-    int mcCenterY = maincharacter->getCenterY();
+    y = maincharacter->getCenterY();
 
-    y = mcCenterY;
+    //y = mcCenterY;
 
-    //Check MainCharacter direction
+    //Check MainCharacter direction -> 0 = right, 1 = left
     if(mcDirection == 0)
     {
         x = mcX + 27;

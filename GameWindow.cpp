@@ -36,7 +36,6 @@ void GameWindow::update()
             box.update(&maincharacter, &bulletVec[i], &killProjectile);
             bulletVec[i].update(&killProjectile);
 
-            //Kill projectile
             if(killProjectile)
             {
                 bulletVec.erase(bulletVec.begin() + i);
@@ -85,10 +84,11 @@ void GameWindow::keyPressEvent(QKeyEvent * e)
         maincharacter.setDirection(1);
         maincharacter.setXVelocity(5);
 
+
         weapon.setSprite(QPixmap("Resources/weapons/gun_left.png"));
         maincharacter.setSprite(QPixmap("Resources/delroy/delroy_left.png"));
         maincharacter.setPosition(maincharacter.getX() - maincharacter.getXVel(), maincharacter.getY());
-        weapon.setPosition(weapon.getX() - maincharacter.getXVel(), weapon.getY());
+        weapon.setPosition(weapon.getX(), weapon.getY());
 
     }
 
@@ -101,7 +101,7 @@ void GameWindow::keyPressEvent(QKeyEvent * e)
         weapon.setSprite(QPixmap("Resources/weapons/gun_right.png"));
         maincharacter.setSprite(QPixmap("Resources/delroy/delroy_right.png"));
         maincharacter.setPosition(maincharacter.getX() + maincharacter.getXVel(), maincharacter.getY());
-        weapon.setPosition(weapon.getX() + maincharacter.getXVel(), weapon.getY());
+        weapon.setPosition(weapon.getX(), weapon.getY());
 
     }
 

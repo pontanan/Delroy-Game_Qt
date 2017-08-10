@@ -50,6 +50,11 @@ void MainCharacter::setXVelocity(float newVelocity)
     xVel = newVelocity;
 }
 
+void MainCharacter::setYVelocity(float newVelocity)
+{
+    yVel = newVelocity;
+}
+
 void MainCharacter::setDirection(int newDirection)
 {
     direction = newDirection;
@@ -78,19 +83,25 @@ void MainCharacter::update(Ground *ground)
 {
     if (isJumping)
     {
-         yVel += gravity;
+        yVel += gravity;
 
          //Check direction | 0 -> Right, 1 -> Left
          if(direction == 0)
             setPosition(position.x() + xVel, position.y() + yVel);
          else
              setPosition(position.x() - xVel, position.y() + yVel);
-
-         if (position.y() >= ground->getY() - 5)
-         {
-             setPosition(position.x(), ground->getY() - position.height());
-             yVel = 0;
-             isJumping = false;
-         }
      }
+    else
+    {
+        yVel += gravity;
+
+        setPosition(position.x(), position.y() + yVel);
+    }
+
+    if (position.y() + position.height() > ground->getY())
+    {
+        setPosition(position.x(), ground->getY() - position.height());
+        yVel = 0;
+        isJumping = false;
+    }
 }
