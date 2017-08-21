@@ -13,8 +13,8 @@ class Obstacles
 public:
     Obstacles(QPixmap map, QRect rect);
     void paint(QPainter * qp);
-    void hitCheck(Projectile *bullet, bool **killProjectile);
-    void hitCheck(MainCharacter *mc);
+    bool hitCheck(Projectile *bullet);
+    bool hitCheck(MainCharacter *mc);
 protected:
     QPixmap pixmap;
     QRect position;

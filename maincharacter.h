@@ -21,6 +21,7 @@ public:
     int getXVel();
     int getDirection();
     void setXVelocity(float newVelocity);
+    void setYVelocity(float newVelocity);
     void setDirection(int newDirection);
     void setPosition(int x, int y);
     void setSprite(QPixmap newPixmap);
@@ -32,7 +33,7 @@ public:
 private:
     float yVel = 0;
     float xVel = 0;
-    float gravity = 1.4;
+    float gravity = 0.8;
     int direction = 0; //0 -> Right, 1 -> Left
 };
 

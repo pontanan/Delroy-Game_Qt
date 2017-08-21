@@ -14,6 +14,16 @@ int Projectile::getY()
     return position.y();
 }
 
+int Projectile::getWidth()
+{
+    return position.width();
+}
+
+int Projectile::getHeight()
+{
+    return position.height();
+}
+
 void Projectile::setPosition(int x, int y)
 {
     position = QRect(x, y, position.width(), position.height());

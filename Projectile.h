@@ -13,6 +13,8 @@ public:
     Projectile();
     int getX();
     int getY();
+    int getWidth();
+    int getHeight();
     void setPosition(int x, int y);
     void setDirection(int newDirection);
     void checkCollision(bool **killProjectile);
