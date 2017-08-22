@@ -14,6 +14,21 @@ int Weapon::getY()
     return position.y();
 }
 
+int Weapon::getWidth()
+{
+    return position.width();
+}
+
+int Weapon::getHeight()
+{
+    return position.height();
+}
+
+int Weapon::getDirection()
+{
+    return direction;
+}
+
 void Weapon::setPosition(int x, int y)
 {
     position = QRect(x, y, position.width(), position.height());
