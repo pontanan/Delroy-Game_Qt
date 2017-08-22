@@ -77,6 +77,8 @@ void Weapon::update(MainCharacter * maincharacter, int mcDirection)
         x = mcX - 1;
         setPosition(x, y);
     }
+
+
 }
 
 void Weapon::paint(QPainter * qp)

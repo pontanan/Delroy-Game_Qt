@@ -1,6 +1,6 @@
 #include "gamewindow.h"
 #include "ui_gamewindow.h"
-
+#include <cstdlib>
 GameWindow::GameWindow(QWidget *parent) :
 	QMainWindow(parent),
 	ui(new Ui::GameWindow)
@@ -15,7 +15,7 @@ GameWindow::GameWindow(QWidget *parent) :
 
 GameWindow::~GameWindow()
 {
-    delete ui;
+	delete ui;
 }
 
 void GameWindow::update()
@@ -30,7 +30,7 @@ void GameWindow::update()
     maincharacter.update(&dirt);
     weapon.update(&maincharacter, maincharacter.getDirection());
 
-
+	
     //--------------------Collision Control-----------------------//
     if(bulletVec.size() > 0)
     {
@@ -61,24 +61,24 @@ void GameWindow::update()
 
 void GameWindow::paintEvent(QPaintEvent * e)
 {
-	QPainter qp(this);
-      background.paint(&qp);
-      dirt.paint(&qp);
-      enemy.paint(&qp);
-      farmer.paint(&qp);
-      box.paint(&qp);
-      stone.paint(&qp);
-      grass.paint(&qp);
-      maincharacter.paint(&qp);
-      weapon.paint(&qp);
+    QPainter qp(this);
+    background.paint(&qp);
+    dirt.paint(&qp);
+    enemy.paint(&qp);
+    farmer.paint(&qp);
+    box.paint(&qp);
+    stone.paint(&qp);
+    grass.paint(&qp);
+    maincharacter.paint(&qp);
+    weapon.paint(&qp);
 
-      if(bulletVec.size() > 0)
-      {
-          for(int i = 0; i < bulletVec.size();i++)
-          {
-              bulletVec[i].paint(&qp);
-          }
-      }
+    if(bulletVec.size() > 0)
+    {
+        for(int i = 0; i < bulletVec.size();i++)
+        {
+            bulletVec[i].paint(&qp);
+        }
+    }
 }
 
 void GameWindow::keyPressEvent(QKeyEvent * e)
@@ -124,7 +124,7 @@ void GameWindow::keyPressEvent(QKeyEvent * e)
     {
         maincharacter.jump();
     }
-
+	
     if(e->key() == Qt::Key_Escape)
     {
         close();

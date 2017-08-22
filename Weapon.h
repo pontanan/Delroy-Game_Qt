@@ -25,7 +25,7 @@ public:
 protected:
     QPixmap pixmap;
     QRect position;
-
+    
 private:
     int direction = 0;
 };
