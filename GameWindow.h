@@ -19,6 +19,7 @@
 #include "Stone.h"
 #include "Dirt.h"
 #include "Grass.h"
+#include "endgamedialog.h"
 
 namespace Ui {
 	class GameWindow;
