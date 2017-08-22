@@ -1,6 +1,6 @@
 #include "maincharacter.h"
 
-MainCharacter::MainCharacter() :Player(QPixmap("Resources/delroy/delroy_right.png"), QRect(50, 468, 32, 32))
+MainCharacter::MainCharacter() :Player(QPixmap("Resources/delroy/delroy_right.png"), QRect(400, 468, 32, 32))
 {
 
 }
@@ -87,9 +87,9 @@ void MainCharacter::update(Ground *ground)
 
          //Check direction | 0 -> Right, 1 -> Left
          if(direction == 0)
-            setPosition(position.x() + xVel, position.y() + yVel);
+            setPosition(position.x()/* + xVel*/, position.y() + yVel);
          else
-             setPosition(position.x() - xVel, position.y() + yVel);
+             setPosition(position.x()/* - xVel*/, position.y() + yVel);
      }
     else
     {
@@ -102,4 +102,7 @@ void MainCharacter::update(Ground *ground)
         setPosition(position.x(), ground->getY() - position.height());
         isJumping = false;
     }
+
+    if(position.x() <= 0)
+        setPosition(0, position.y());
 }

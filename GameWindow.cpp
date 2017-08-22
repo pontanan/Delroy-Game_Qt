@@ -20,7 +20,8 @@ GameWindow::~GameWindow()
 
 void GameWindow::update()
 {
-    if(maincharacter.getCenterX() > 400 && maincharacter.getDirection() == 0)
+
+    /*if(maincharacter.getDirection() == 0)
     {
         background.setPosition(background.getX() - maincharacter.getXVel(), background.getY());
         dirt.setPosition(dirt.getX() - maincharacter.getXVel(), dirt.getY());
@@ -28,7 +29,7 @@ void GameWindow::update()
         stone.setPosition(stone.getX() - maincharacter.getXVel(), stone.getY());
         box.setPosition(box.getX() - maincharacter.getXVel(), box.getY());
     }
-    else if(maincharacter.getCenterX() > 400 && maincharacter.getDirection() == 1)
+    else if(maincharacter.getDirection() == 1)
     {
 
         if(background.getX() > -5)
@@ -55,18 +56,7 @@ void GameWindow::update()
             box.setPosition(box.getStartX(), box.getStartY());
         else
             box.setPosition(box.getX() + maincharacter.getXVel(), box.getY());
-
-    }
-    else
-    {
-        background.setPosition(background.getX(), background.getY());
-        dirt.setPosition(dirt.getX(), dirt.getY());
-        grass.setPosition(grass.getX(), grass.getY());
-        stone.setPosition(stone.getX(), stone.getY());
-        box.setPosition(box.getX(), box.getY());
-    }
-
-
+    }*/
 
     background.update(&background);
     dirt.update(&dirt);
@@ -143,8 +133,33 @@ void GameWindow::keyPressEvent(QKeyEvent * e)
 
         weapon.setSprite(QPixmap("Resources/weapons/gun_left.png"));
         maincharacter.setSprite(QPixmap("Resources/delroy/delroy_left.png"));
-        maincharacter.setPosition(maincharacter.getX() - maincharacter.getXVel(), maincharacter.getY());
+        /*maincharacter.setPosition(maincharacter.getX() - maincharacter.getXVel(), maincharacter.getY());*/
         weapon.setPosition(maincharacter.getX() - 1, maincharacter.getCenterY());
+
+        if(background.getX() > -5)
+            background.setPosition(0, 0);
+        else
+            background.setPosition(background.getX() + maincharacter.getXVel()+5, background.getY());
+
+        if(dirt.getX() > dirt.getStartX() - 5)
+            dirt.setPosition(dirt.getStartX(), dirt.getStartY());
+        else
+            dirt.setPosition(dirt.getX() + maincharacter.getXVel()+5, dirt.getY());
+
+        if(grass.getX() > grass.getStartX() - 5)
+            grass.setPosition(grass.getStartX(), grass.getStartY());
+        else
+            grass.setPosition(grass.getX() + maincharacter.getXVel()+5, grass.getY());
+
+        if(stone.getX() > stone.getStartX() - 5)
+            stone.setPosition(stone.getStartX(), stone.getStartY());
+        else
+            stone.setPosition(stone.getX() + maincharacter.getXVel()+5, stone.getY());
+
+        if(box.getX() > box.getStartX() - 5)
+            box.setPosition(box.getStartX(), box.getStartY());
+        else
+            box.setPosition(box.getX() + maincharacter.getXVel()+5, box.getY());
 
     }
 
@@ -156,9 +171,19 @@ void GameWindow::keyPressEvent(QKeyEvent * e)
 
         weapon.setSprite(QPixmap("Resources/weapons/gun_right.png"));
         maincharacter.setSprite(QPixmap("Resources/delroy/delroy_right.png"));
-        maincharacter.setPosition(maincharacter.getX() + maincharacter.getXVel(), maincharacter.getY());
+        /*maincharacter.setPosition(maincharacter.getX() + maincharacter.getXVel(), maincharacter.getY());*/
         weapon.setPosition(maincharacter.getX() + 27, maincharacter.getCenterY());
 
+        background.setPosition(background.getX() - maincharacter.getXVel()-5, background.getY());
+        dirt.setPosition(dirt.getX() - maincharacter.getXVel()-5, dirt.getY());
+        grass.setPosition(grass.getX() - maincharacter.getXVel()-5, grass.getY());
+        stone.setPosition(stone.getX() - maincharacter.getXVel()-5, stone.getY());
+        box.setPosition(box.getX() - maincharacter.getXVel()-5, box.getY());
+
+        if(e->key() == Qt::Key_Space)
+        {
+            maincharacter.jump();
+        }
     }
 
 
