@@ -63,6 +63,18 @@ void Box::collision(MainCharacter *mc)
     }
 }
 
+void Box::collision(Weapon *weapon)
+{
+    if( hitCheck(weapon) )
+    {
+
+        if(weapon->getDirection() == 0)
+            weapon->setPosition(position.x() - weapon->getWidth(), weapon->getY());
+        else
+            weapon->setPosition(position.x() + position.width() + 1, weapon->getY());
+    }
+}
+
 void Box::update()
 {
 
