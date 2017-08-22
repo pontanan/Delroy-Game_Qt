@@ -20,6 +20,7 @@
 #include "Dirt.h"
 #include "Grass.h"
 #include "endgamedialog.h"
+#include "pitchfork.h"
 
 namespace Ui {
 	class GameWindow;
@@ -49,6 +50,8 @@ private:
       Box box;
       Stone stone;
       Grass grass;
+      Pitchfork pitchfork;
+
 private slots:
     void update();
     void keyPressEvent(QKeyEvent *e);

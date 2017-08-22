@@ -74,6 +74,7 @@ void GameWindow::update()
     stone.update();
     box.update();
     enemy.update();
+    pitchfork.update();
     farmer.update(&farmer);
     maincharacter.update(&dirt);
     weapon.update(&maincharacter, maincharacter.getDirection());
@@ -109,24 +110,25 @@ void GameWindow::update()
 
 void GameWindow::paintEvent(QPaintEvent * e)
 {
-	QPainter qp(this);
-      background.paint(&qp);
-      dirt.paint(&qp);
-      enemy.paint(&qp);
-      farmer.paint(&qp);
-      box.paint(&qp);
-      stone.paint(&qp);
-      grass.paint(&qp);
-      maincharacter.paint(&qp);
-      weapon.paint(&qp);
+    QPainter qp(this);
+    background.paint(&qp);
+    dirt.paint(&qp);
+    enemy.paint(&qp);
+    pitchfork.paint(&qp);
+    farmer.paint(&qp);
+    box.paint(&qp);
+    stone.paint(&qp);
+    grass.paint(&qp);
+    maincharacter.paint(&qp);
+    weapon.paint(&qp);
 
-      if(bulletVec.size() > 0)
-      {
-          for(int i = 0; i < bulletVec.size();i++)
-          {
-              bulletVec[i].paint(&qp);
-          }
-      }
+    if(bulletVec.size() > 0)
+    {
+        for(int i = 0; i < bulletVec.size();i++)
+        {
+            bulletVec[i].paint(&qp);
+        }
+    }
 }
 
 void GameWindow::keyPressEvent(QKeyEvent * e)
