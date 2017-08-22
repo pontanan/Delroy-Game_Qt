@@ -20,7 +20,9 @@ SOURCES += main.cpp \
     Dirt.cpp \
     Grass.cpp \
     menuwindow.cpp \
-    endgamedialog.cpp
+    endgamedialog.cpp \
+    Pitchfork.cpp
+
 
 
 DISTFILES += \
@@ -66,7 +68,9 @@ HEADERS += \
     Dirt.h \
     Grass.h \
     menuwindow.h \
-    endgamedialog.h
+    endgamedialog.h \
+    Pitchfork.h
+
 
 
 FORMS += \

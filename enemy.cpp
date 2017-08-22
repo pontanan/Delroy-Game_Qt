@@ -1,6 +1,7 @@
 #include "Enemy.h"
 
-Enemy::Enemy() :Player(QPixmap("Resources/hen/hen_right.png"), QRect(450, 404, 96, 96)), xVel(1.0)
+Enemy::Enemy() :Player(QPixmap("Resources/hen/hen_right.png"), QRect(450, 412, 84, 88)), xVel(1.0)
+
 {
 
 }

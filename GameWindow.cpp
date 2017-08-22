@@ -26,6 +26,7 @@ void GameWindow::update()
     stone.update();
     box.update();
     enemy.update();
+    pitchfork.update();
     farmer.update(&farmer);
     maincharacter.update(&dirt);
     weapon.update(&maincharacter, maincharacter.getDirection());
@@ -65,6 +66,7 @@ void GameWindow::paintEvent(QPaintEvent * e)
     background.paint(&qp);
     dirt.paint(&qp);
     enemy.paint(&qp);
+    pitchfork.paint(&qp);
     farmer.paint(&qp);
     box.paint(&qp);
     stone.paint(&qp);
