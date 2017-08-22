@@ -41,17 +41,13 @@ void Weapon::shoot(QVector<Projectile> *bulletVec, int mcDirection)
     bullet.move(); //Start moving proccess for Bullet
 }
 
-void Weapon::checkCollision()
-{
-
-}
-
 void Weapon::update(MainCharacter * maincharacter, int mcDirection)
 {
     int x = position.x();
     int y = position.y();
     int mcX = maincharacter->getX();
     y = maincharacter->getCenterY();
+    direction = mcDirection;
 
     //y = mcCenterY;
 
