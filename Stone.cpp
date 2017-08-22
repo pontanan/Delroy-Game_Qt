@@ -22,9 +22,14 @@ void Stone::update(MainCharacter *mc, Projectile *bullet, bool *killProjectile)
         if(mc->isJumping)
             mc->isJumping = false;
 
-        if(mc->getDirection() == 0)
+        if(mc->getY() + mc->getHeight() >= position.y() &&  mc->getY() + mc->getHeight() <= position.y() + 10)
+        {
+            mc->setPosition(mc->getX(), position.y() - position.height());
+            mc->setYVelocity(0);
+        }
+        else if(mc->getDirection() == 0)
             mc->setPosition(position.x() - mc->getWidth(), position.bottom() - (mc->getHeight() - 1));
-        else
+        else if(mc->getDirection() == 1)
             mc->setPosition(position.x() + position.width(), position.bottom() - (mc->getHeight() - 1));
     }
 }
@@ -36,9 +41,14 @@ void Stone::update(MainCharacter *mc)
         if(mc->isJumping)
             mc->isJumping = false;
 
-        if(mc->getDirection() == 0)
+        if(mc->getY() + mc->getHeight() >= position.y() &&  mc->getY() + mc->getHeight() <= position.y() + 10)
+        {
+            mc->setPosition(mc->getX(), position.y() - position.height());
+            mc->setYVelocity(0);
+        }
+        else if(mc->getDirection() == 0)
             mc->setPosition(position.x() - mc->getWidth(), position.bottom() - (mc->getHeight() - 1));
-        else
+        else if(mc->getDirection() == 1)
             mc->setPosition(position.x() + position.width(), position.bottom() - (mc->getHeight() - 1));
     }
 }
