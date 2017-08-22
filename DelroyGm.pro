@@ -24,6 +24,7 @@ SOURCES += main.cpp \
     Pitchfork.cpp
 
 
+
 DISTFILES += \
     DelroyGm.pro.user \
     README.md \
@@ -69,6 +70,7 @@ HEADERS += \
     menuwindow.h \
     endgamedialog.h \
     Pitchfork.h
+
 
 
 FORMS += \
