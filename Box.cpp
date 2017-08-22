@@ -30,7 +30,7 @@ void Box::setPosition(int x, int y)
     position = QRect(x, y, position.width(),position.height());
 }
 
-void Box::update(MainCharacter *mc, Projectile *bullet, bool *killProjectile)
+void Box::collision(MainCharacter *mc, Projectile *bullet, bool *killProjectile)
 {
     if( hitCheck(bullet) )
     {
@@ -49,7 +49,7 @@ void Box::update(MainCharacter *mc, Projectile *bullet, bool *killProjectile)
     }
 }
 
-void Box::update(MainCharacter *mc)
+void Box::collision(MainCharacter *mc)
 {
     if( hitCheck(mc) )
     {
@@ -63,3 +63,7 @@ void Box::update(MainCharacter *mc)
     }
 }
 
+void Box::update()
+{
+
+}
