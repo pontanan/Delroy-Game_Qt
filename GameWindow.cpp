@@ -23,22 +23,21 @@ void GameWindow::update()
     background.update(&background);
     dirt.update(&dirt);
     grass.update(&grass);
+    stone.update();
+    box.update();
     enemy.update(&enemy);
     farmer.update(&farmer);
     maincharacter.update(&dirt);
     weapon.update(&maincharacter, maincharacter.getDirection());
 
-
-
-
-
-
+	
+    //--------------------Collision Control-----------------------//
     if(bulletVec.size() > 0)
     {
         for(int i = 0; i < bulletVec.size();i++)
         {
-            stone.update(&maincharacter, &bulletVec[i], &killProjectile);
-            box.update(&maincharacter, &bulletVec[i], &killProjectile);
+            stone.collision(&maincharacter, &bulletVec[i], &killProjectile);
+            box.collision(&maincharacter, &bulletVec[i], &killProjectile);
             bulletVec[i].update(&killProjectile);
 
             if(killProjectile)
@@ -51,8 +50,10 @@ void GameWindow::update()
     }
     else
     {
-        stone.update(&maincharacter);
-        box.update(&maincharacter);
+        stone.collision(&maincharacter);
+        stone.collision(&weapon);
+        box.collision(&maincharacter);
+        box.collision(&weapon);
     }
 
     repaint();
@@ -60,24 +61,24 @@ void GameWindow::update()
 
 void GameWindow::paintEvent(QPaintEvent * e)
 {
-	QPainter qp(this);
-      background.paint(&qp);
-      dirt.paint(&qp);
-      enemy.paint(&qp);
-      farmer.paint(&qp);
-      box.paint(&qp);
-      stone.paint(&qp);
-      grass.paint(&qp);
-      maincharacter.paint(&qp);
-      weapon.paint(&qp);
+    QPainter qp(this);
+    background.paint(&qp);
+    dirt.paint(&qp);
+    enemy.paint(&qp);
+    farmer.paint(&qp);
+    box.paint(&qp);
+    stone.paint(&qp);
+    grass.paint(&qp);
+    maincharacter.paint(&qp);
+    weapon.paint(&qp);
 
-      if(bulletVec.size() > 0)
-      {
-          for(int i = 0; i < bulletVec.size();i++)
-          {
-              bulletVec[i].paint(&qp);
-          }
-      }
+    if(bulletVec.size() > 0)
+    {
+        for(int i = 0; i < bulletVec.size();i++)
+        {
+            bulletVec[i].paint(&qp);
+        }
+    }
 }
 
 void GameWindow::keyPressEvent(QKeyEvent * e)
@@ -86,14 +87,14 @@ void GameWindow::keyPressEvent(QKeyEvent * e)
     //If 'Left-arrowkey' is pressed
     if(e->key() == Qt::Key_Left)
     {
-        maincharacter.setDirection(1);
+        maincharacter.setDirection(1); //0 = right, 1 = left
         maincharacter.setXVelocity(5);
 
 
         weapon.setSprite(QPixmap("Resources/weapons/gun_left.png"));
         maincharacter.setSprite(QPixmap("Resources/delroy/delroy_left.png"));
         maincharacter.setPosition(maincharacter.getX() - maincharacter.getXVel(), maincharacter.getY());
-        weapon.setPosition(weapon.getX(), weapon.getY());
+        weapon.setPosition(maincharacter.getX() - 1, maincharacter.getCenterY());
 
     }
 
@@ -106,7 +107,7 @@ void GameWindow::keyPressEvent(QKeyEvent * e)
         weapon.setSprite(QPixmap("Resources/weapons/gun_right.png"));
         maincharacter.setSprite(QPixmap("Resources/delroy/delroy_right.png"));
         maincharacter.setPosition(maincharacter.getX() + maincharacter.getXVel(), maincharacter.getY());
-        weapon.setPosition(weapon.getX(), weapon.getY());
+        weapon.setPosition(maincharacter.getX() + 27, maincharacter.getCenterY());
 
     }
 
@@ -122,6 +123,11 @@ void GameWindow::keyPressEvent(QKeyEvent * e)
     if(e->key() == Qt::Key_Space)
     {
         maincharacter.jump();
+    }
+	
+    if(e->key() == Qt::Key_Escape)
+    {
+        close();
     }
 }
 
