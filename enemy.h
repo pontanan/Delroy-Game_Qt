@@ -19,7 +19,11 @@ public:
 private:
     QTimer *timer;
     float xVel;
+    int direction;
 };
+
+
+
 
 
 #endif // ENEMY_H

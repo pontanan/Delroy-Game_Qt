@@ -5,10 +5,13 @@
 #include <Qpainter>
 #include <QTimer>
 #include "Obstacles.h"
+
 class Stone: public Obstacles
 {
 public:
     Stone();
+    int getStartX();
+    int getStartY();
     void setPosition(int x, int y);
     void collision(MainCharacter *mc, Projectile *bullet, bool *killProjectile);
     void collision(MainCharacter *mc);

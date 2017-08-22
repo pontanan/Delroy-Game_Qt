@@ -5,24 +5,14 @@ Box::Box():Obstacles(QPixmap("Resources/obstacles/box.png"), QRect(300, 436, 64,
 
 }
 
-int Box::getX()
+int Box::getStartX()
 {
-    return position.x();
+    return 300;
 }
 
-int Box::getY()
+int Box::getStartY()
 {
-    return position.y();
-}
-
-int Box::getWidth()
-{
-    return position.width();
-}
-
-int Box::getHeight()
-{
-    return position.height();
+    return 436;
 }
 
 void Box::setPosition(int x, int y)
@@ -89,3 +79,4 @@ void Box::update()
 {
 
 }
+

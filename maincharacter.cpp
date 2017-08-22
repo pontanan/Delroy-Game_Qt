@@ -42,7 +42,7 @@ int MainCharacter::getXVel()
 
 int MainCharacter::getDirection()
 {
-    return direction;
+    return direction; // 0 -> Right, 1 -> Left
 }
 
 void MainCharacter::setXVelocity(float newVelocity)

@@ -3,9 +3,15 @@
 Dirt::Dirt():Ground(QPixmap("Resources/ground/dirt.png"), QRect(0, 500, 500, 100))
 {
 }
-void Dirt::setPosition(int x, int y)
+
+int Dirt::getStartX()
 {
-    position = QRect(x, y, position.width(),position.height());
+    return 0;
+}
+
+int Dirt::getStartY()
+{
+    return 500;
 }
 
 void Dirt::update(Dirt *dirt)

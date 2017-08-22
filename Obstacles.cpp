@@ -19,14 +19,24 @@ int Obstacles::getY()
     return position.y();
 }
 
+int Obstacles::getWidth()
+{
+    return position.width();
+}
+
 int Obstacles::getHeight()
 {
     return position.height();
 }
 
-int Obstacles::getWidth()
+int Obstacles::getStartX()
 {
-    return position.width();
+    return 0;
+}
+
+int Obstacles::getStartY()
+{
+    return 0;
 }
 
 bool Obstacles::hitCheck(Projectile *bullet)

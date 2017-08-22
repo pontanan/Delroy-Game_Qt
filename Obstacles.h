@@ -15,8 +15,10 @@ public:
     void paint(QPainter * qp);
     int getX();
     int getY();
-    int getHeight();
     int getWidth();
+    int getHeight();
+    int getStartX();
+    int getStartY();
     bool hitCheck(Projectile *bullet);
     bool hitCheck(MainCharacter *mc);
     bool hitCheck(Weapon *weapon);

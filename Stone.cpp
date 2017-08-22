@@ -5,6 +5,16 @@ Stone::Stone():Obstacles(QPixmap("Resources/obstacles/stone.png"), QRect(200, 46
 
 }
 
+int Stone::getStartX()
+{
+    return 200;
+}
+
+int Stone::getStartY()
+{
+    return 468;
+}
+
 void Stone::setPosition(int x, int y)
 {
     position = QRect(x, y, position.width(),position.height());
