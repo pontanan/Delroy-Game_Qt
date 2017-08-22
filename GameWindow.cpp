@@ -15,7 +15,7 @@ GameWindow::GameWindow(QWidget *parent) :
 
 GameWindow::~GameWindow()
 {
-	delete ui;
+    delete ui;
 }
 
 void GameWindow::update()
@@ -117,6 +117,11 @@ void GameWindow::keyPressEvent(QKeyEvent * e)
     if(e->key() == Qt::Key_Space)
     {
         maincharacter.jump();
+    }
+
+    if(e->key() == Qt::Key_Escape)
+    {
+        close();
     }
 }
 

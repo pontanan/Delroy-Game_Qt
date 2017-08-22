@@ -9,6 +9,8 @@
 
 **X**: Skjut
 
+**ESC**: Avsluta spel
+
 ## Beskrivning
 Delroy’s familj blir tagna och uppätna av bonden. Delroy vill döda bonden.
 
