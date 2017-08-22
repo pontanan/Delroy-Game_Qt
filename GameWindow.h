@@ -1,8 +1,6 @@
 #ifndef GAMEWINDOW_H
 #define GAMEWINDOW_H
 
-#include<stdio.h>
-#include<stdlib.h>
 #include <QMainWindow>
 #include <QTimer>
 #include <QtGui>
@@ -22,19 +20,12 @@
 #include "Stone.h"
 #include "Dirt.h"
 #include "Grass.h"
+#include "endgamedialog.h"
+#include "pitchfork.h"
 
 namespace Ui {
 	class GameWindow;
 }
-
-class Sleeper : public QThread
-{
-public:
-    static void usleep(unsigned long usecs){QThread::usleep(usecs);}
-    static void msleep(unsigned long msecs){QThread::msleep(msecs);}
-    static void sleep(unsigned long secs){QThread::sleep(secs);}
-};
-
 
 class GameWindow : public QMainWindow
 {
@@ -45,7 +36,7 @@ public:
 
 	explicit GameWindow(QWidget *parent = 0);
 	~GameWindow();
-    void delay(unsigned int);
+
 private:
 	Ui::GameWindow *ui;
 	QTimer * timer;
@@ -60,6 +51,7 @@ private:
       Box box;
       Stone stone;
       Grass grass;
+      Pitchfork pitchfork;
 
 private slots:
     void update();
