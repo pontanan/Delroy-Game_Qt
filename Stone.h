@@ -10,7 +10,8 @@ class Stone: public Obstacles
 public:
     Stone();
     void setPosition(int x, int y);
-    void update(Stone *stone);
+    void update(MainCharacter *mc, Projectile *bullet, bool *killProjectile);
+    void update(MainCharacter *mc);
 private:
     QTimer *timer;
 };
