@@ -13,8 +13,13 @@ public:
     Enemy();
     void setPosition(int x, int y);
     void update(Enemy *enemy);
+    void setXVelocity(float newVelocity);
+    void setSprite(QPixmap newPixmap);
+
 private:
     QTimer *timer;
+    float xVel = 0;
+    float direction;
 };
 
 

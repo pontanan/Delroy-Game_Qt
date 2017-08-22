@@ -13,21 +13,16 @@ public:
     Weapon();
     int getX();
     int getY();
-    int getWidth();
-    int getHeight();
-    int getDirection();
     void setPosition(int x, int y);
     void setSprite(QPixmap newPixmap);
     void shoot(QVector<Projectile> *bulletVec, int mcDirection);
+    void checkCollision();
     void update(MainCharacter * maincharacter, int mcDirection);
     void paint(QPainter * qp);
     virtual ~Weapon();
 protected:
     QPixmap pixmap;
     QRect position;
-
-private:
-    int direction = 0;
 };
 
 

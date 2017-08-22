@@ -14,21 +14,6 @@ int Weapon::getY()
     return position.y();
 }
 
-int Weapon::getWidth()
-{
-    return position.width();
-}
-
-int Weapon::getHeight()
-{
-    return position.height();
-}
-
-int Weapon::getDirection()
-{
-    return direction;
-}
-
 void Weapon::setPosition(int x, int y)
 {
     position = QRect(x, y, position.width(), position.height());
@@ -56,13 +41,17 @@ void Weapon::shoot(QVector<Projectile> *bulletVec, int mcDirection)
     bullet.move(); //Start moving proccess for Bullet
 }
 
+void Weapon::checkCollision()
+{
+
+}
+
 void Weapon::update(MainCharacter * maincharacter, int mcDirection)
 {
     int x = position.x();
     int y = position.y();
     int mcX = maincharacter->getX();
     y = maincharacter->getCenterY();
-    direction = mcDirection;
 
     //y = mcCenterY;
 
@@ -77,6 +66,8 @@ void Weapon::update(MainCharacter * maincharacter, int mcDirection)
         x = mcX - 1;
         setPosition(x, y);
     }
+
+
 }
 
 void Weapon::paint(QPainter * qp)

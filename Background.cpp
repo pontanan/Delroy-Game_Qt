@@ -13,4 +13,3 @@ void Background::update(Background *background)
 {
 
 }
-
