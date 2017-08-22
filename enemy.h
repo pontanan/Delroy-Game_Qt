@@ -12,9 +12,14 @@ class Enemy : public Player
 public:
     Enemy();
     void setPosition(int x, int y);
-    void update(Enemy *enemy);
+    void setSprite(QPixmap newPixmap);
+    void setXVelocity(float newVelocity);
+    void update();
+
 private:
     QTimer *timer;
+    float xVel;
+    int direction;
 };
 
 
