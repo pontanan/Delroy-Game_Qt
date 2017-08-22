@@ -94,14 +94,12 @@ void MainCharacter::update(Ground *ground)
     else
     {
         yVel += gravity;
-
         setPosition(position.x(), position.y() + yVel);
     }
 
     if (position.y() + position.height() > ground->getY())
     {
         setPosition(position.x(), ground->getY() - position.height());
-        yVel = 0;
         isJumping = false;
     }
 }
