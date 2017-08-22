@@ -25,7 +25,7 @@ void GameWindow::update()
     grass.update(&grass);
     stone.update();
     box.update();
-    enemy.update(&enemy);
+    enemy.update();
     farmer.update(&farmer);
     maincharacter.update(&dirt);
     weapon.update(&maincharacter, maincharacter.getDirection());
