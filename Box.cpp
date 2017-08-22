@@ -30,7 +30,7 @@ void Box::setPosition(int x, int y)
     position = QRect(x, y, position.width(),position.height());
 }
 
-void Box::update(MainCharacter *mc, Projectile *bullet, bool *killProjectile)
+void Box::collision(MainCharacter *mc, Projectile *bullet, bool *killProjectile)
 {
     if( hitCheck(bullet) )
     {
@@ -44,17 +44,17 @@ void Box::update(MainCharacter *mc, Projectile *bullet, bool *killProjectile)
 
         if(mc->getY() + mc->getHeight() >= position.y() &&  mc->getY() + mc->getHeight() <= position.y() + 10)
         {
-            mc->setPosition(mc->getX(), position.y() - position.height());
+            mc->setPosition(mc->getX(), position.y() - position.height() + 32);
             mc->setYVelocity(0);
         }
         else if(mc->getDirection() == 0)
-            mc->setPosition(position.x() - mc->getWidth(), position.bottom() - (mc->getHeight() - 1));
+            mc->setPosition(position.x() - mc->getWidth() - 2, position.bottom() - (mc->getHeight() - 1));
         else if(mc->getDirection() == 1)
-            mc->setPosition(position.x() + position.width(), position.bottom() - (mc->getHeight() - 1));
+            mc->setPosition(position.x() + position.width() + 2, position.bottom() - (mc->getHeight() - 1));
     }
 }
 
-void Box::update(MainCharacter *mc)
+void Box::collision(MainCharacter *mc)
 {
     if( hitCheck(mc) )
     {
@@ -63,13 +63,30 @@ void Box::update(MainCharacter *mc)
 
         if(mc->getY() + mc->getHeight() >= position.y() &&  mc->getY() + mc->getHeight() <= position.y() + 10)
         {
-            mc->setPosition(mc->getX(), position.y() - position.height() + 31);
+            mc->setPosition(mc->getX(), position.y() - position.height() + 32);
             mc->setYVelocity(0);
         }
         else if(mc->getDirection() == 0)
-            mc->setPosition(position.x() - mc->getWidth(), position.bottom() - (mc->getHeight() - 1));
+            mc->setPosition(position.x() - mc->getWidth() - 2, position.bottom() - (mc->getHeight() - 1));
         else if(mc->getDirection() == 1)
-            mc->setPosition(position.x() + position.width(), position.bottom() - (mc->getHeight() - 1));
+            mc->setPosition(position.x() + position.width() + 2, position.bottom() - (mc->getHeight() - 1));
     }
+}
+
+void Box::collision(Weapon *weapon)
+{
+    if( hitCheck(weapon) )
+    {
+
+        if(weapon->getDirection() == 0)
+            weapon->setPosition(position.x() - weapon->getWidth(), weapon->getY());
+        else
+            weapon->setPosition(position.x() + position.width() + 1, weapon->getY());
+    }
+}
+
+void Box::update()
+{
+
 }
 
