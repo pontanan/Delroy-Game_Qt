@@ -14,10 +14,8 @@ public:
     int getWidth();
     int getHeight();
     void setPosition(int x, int y);
-    void collision(MainCharacter *mc, Projectile *bullet, bool *killProjectile);
-    void collision(MainCharacter *mc);
-    void collision(Weapon *weapon);
-    void update();
+    void update(MainCharacter *mc, Projectile *bullet, bool *killProjectile);
+    void update(MainCharacter *mc);
 private:
     QTimer *timer;
 };
