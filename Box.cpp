@@ -42,10 +42,15 @@ void Box::collision(MainCharacter *mc, Projectile *bullet, bool *killProjectile)
         if(mc->isJumping)
             mc->isJumping = false;
 
-        if(mc->getDirection() == 0)
-            mc->setPosition(position.x() - mc->getWidth(), position.bottom() - (mc->getHeight() - 1));
-        else
-            mc->setPosition(position.x() + position.width(), position.bottom() - (mc->getHeight() - 1));
+        if(mc->getY() + mc->getHeight() >= position.y() &&  mc->getY() + mc->getHeight() <= position.y() + 10)
+        {
+            mc->setPosition(mc->getX(), position.y() - position.height() + 32);
+            mc->setYVelocity(0);
+        }
+        else if(mc->getDirection() == 0)
+            mc->setPosition(position.x() - mc->getWidth() - 2, position.bottom() - (mc->getHeight() - 1));
+        else if(mc->getDirection() == 1)
+            mc->setPosition(position.x() + position.width() + 2, position.bottom() - (mc->getHeight() - 1));
     }
 }
 
@@ -56,10 +61,15 @@ void Box::collision(MainCharacter *mc)
         if(mc->isJumping)
             mc->isJumping = false;
 
-        if(mc->getDirection() == 0)
-            mc->setPosition(position.x() - mc->getWidth(), position.bottom() - (mc->getHeight() - 1));
-        else
-            mc->setPosition(position.x() + position.width(), position.bottom() - (mc->getHeight() - 1));
+        if(mc->getY() + mc->getHeight() >= position.y() &&  mc->getY() + mc->getHeight() <= position.y() + 10)
+        {
+            mc->setPosition(mc->getX(), position.y() - position.height() + 32);
+            mc->setYVelocity(0);
+        }
+        else if(mc->getDirection() == 0)
+            mc->setPosition(position.x() - mc->getWidth() - 2, position.bottom() - (mc->getHeight() - 1));
+        else if(mc->getDirection() == 1)
+            mc->setPosition(position.x() + position.width() + 2, position.bottom() - (mc->getHeight() - 1));
     }
 }
 
