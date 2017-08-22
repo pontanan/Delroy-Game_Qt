@@ -18,7 +18,9 @@ SOURCES += main.cpp \
     Box.cpp \
     Stone.cpp \
     Dirt.cpp \
-    Grass.cpp
+    Grass.cpp \
+    menuwindow.cpp \
+    endgamedialog.cpp
 
 
 DISTFILES += \
@@ -62,8 +64,12 @@ HEADERS += \
     Box.h \
     Stone.h \
     Dirt.h \
-    Grass.h
+    Grass.h \
+    menuwindow.h \
+    endgamedialog.h
 
 
 FORMS += \
-    Resources/gamewindow.ui
+    Resources/gamewindow.ui \
+    menuwindow.ui \
+    endgamedialog.ui
