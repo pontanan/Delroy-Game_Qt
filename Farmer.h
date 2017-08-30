@@ -11,7 +11,7 @@ class Farmer : public Player
 public:
     Farmer();
     void setPosition(int x, int y);
-    void update(Farmer *farmer);
+    void update();
 private:
     QTimer *timer;
 };
