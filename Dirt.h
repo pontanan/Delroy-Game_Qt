@@ -11,7 +11,7 @@ public:
     Dirt();
     int getStartX();
     int getStartY();
-    void update(Dirt *dirt);
+    void update();
 private:
     QTimer *timer;
 };
