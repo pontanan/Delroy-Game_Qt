@@ -19,7 +19,6 @@
 #include "Stone.h"
 #include "Dirt.h"
 #include "Grass.h"
-#include "endgamedialog.h"
 #include "pitchfork.h"
 
 namespace Ui {
