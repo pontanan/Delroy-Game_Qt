@@ -14,7 +14,7 @@ int Dirt::getStartY()
     return 500;
 }
 
-void Dirt::update(Dirt *dirt)
+void Dirt::update()
 {
 
 }

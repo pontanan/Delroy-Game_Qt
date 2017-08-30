@@ -20,14 +20,14 @@ GameWindow::~GameWindow()
 
 void GameWindow::update()
 {
-    background.update(&background);
-    dirt.update(&dirt);
-    grass.update(&grass);
+    background.update();
+    dirt.update();
+    grass.update();
     stone.update();
     box.update();
     enemy.update();
     pitchfork.update();
-    farmer.update(&farmer);
+    farmer.update();
     maincharacter.update(&dirt);
     weapon.update(&maincharacter, maincharacter.getDirection());
 
