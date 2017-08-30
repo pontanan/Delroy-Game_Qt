@@ -16,7 +16,7 @@ public:
     int getStartY();
     void setPosition(int x, int y);
     void paint(QPainter * qp);
-    void update(Ground *ground);
+    void update();
 protected:
     QPixmap pixmap;
     QRect position;
