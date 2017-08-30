@@ -37,7 +37,7 @@ void Projectile::setDirection(int newDirection)
 void Projectile::checkCollision(bool **killProjectile)
 {
     //Check if outside window
-    if(position.x() <= 0 || position.x() >= 800)
+    if(position.x() <= 0 || position.x() >= 1200)
     { isMoving = false; **killProjectile = true;}
 }
 

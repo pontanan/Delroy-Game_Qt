@@ -1,6 +1,6 @@
 #include "Farmer.h"
 
-Farmer::Farmer() :Player(QPixmap("Resources/farmer/farmer_leg.png"), QRect(600, 0, 200, 500))
+Farmer::Farmer() :Player(QPixmap("Resources/farmer/farmer_leg.png"), QRect(1000, 0, 200, 500))
 {
 
 }

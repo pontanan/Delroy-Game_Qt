@@ -1,6 +1,6 @@
 #include "Grass.h"
 
-Grass::Grass():Ground(QPixmap("Resources/ground/grass.png"), QRect(500, 500, 2400, 100))
+Grass::Grass():Ground(QPixmap("Resources/ground/grass.png"), QRect(200, 500, 2400, 100))
 {
 
 }
