@@ -5,11 +5,13 @@
 #include <Qpainter>
 #include <QTimer>
 #include "ground.h"
+
 class Grass : public Ground
 {
 public:
     Grass();
-    void setPosition(int x, int y);
+    int getStartX();
+    int getStartY();
     void update(Grass *grass);
 private:
     QTimer *timer;

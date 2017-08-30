@@ -1,6 +1,6 @@
 #include "gamewindow.h"
 #include "ui_gamewindow.h"
-#include <cstdlib>
+
 GameWindow::GameWindow(QWidget *parent) :
 	QMainWindow(parent),
 	ui(new Ui::GameWindow)
@@ -15,7 +15,7 @@ GameWindow::GameWindow(QWidget *parent) :
 
 GameWindow::~GameWindow()
 {
-	delete ui;
+    delete ui;
 }
 
 void GameWindow::update()
@@ -31,7 +31,7 @@ void GameWindow::update()
     maincharacter.update(&dirt);
     weapon.update(&maincharacter, maincharacter.getDirection());
 
-	
+
     //--------------------Collision Control-----------------------//
     if(bulletVec.size() > 0)
     {
@@ -126,7 +126,7 @@ void GameWindow::keyPressEvent(QKeyEvent * e)
     {
         maincharacter.jump();
     }
-	
+
     if(e->key() == Qt::Key_Escape)
     {
         close();

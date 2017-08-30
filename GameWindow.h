@@ -8,7 +8,6 @@
 #include <QGraphicsItem>
 #include <QPainter>
 #include <QVector>
-#include <QThread>
 #include "Background.h"
 #include "ground.h"
 #include "maincharacter.h"
@@ -57,7 +56,6 @@ private slots:
     void update();
     void keyPressEvent(QKeyEvent *e);
     void keyReleaseEvent(QKeyEvent *e);
-
 };
 
 #endif // GAMEWINDOW_H

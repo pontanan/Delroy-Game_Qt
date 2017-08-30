@@ -20,7 +20,6 @@ SOURCES += main.cpp \
     Dirt.cpp \
     Grass.cpp \
     menuwindow.cpp \
-    endgamedialog.cpp \
     Pitchfork.cpp
 
 
@@ -68,12 +67,10 @@ HEADERS += \
     Dirt.h \
     Grass.h \
     menuwindow.h \
-    endgamedialog.h \
     Pitchfork.h
 
 
 
 FORMS += \
     Resources/gamewindow.ui \
-    menuwindow.ui \
-    endgamedialog.ui
+    menuwindow.ui

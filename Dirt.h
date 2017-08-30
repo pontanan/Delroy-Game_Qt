@@ -9,7 +9,8 @@ class Dirt : public Ground
 {
 public:
     Dirt();
-    void setPosition(int x, int y);
+    int getStartX();
+    int getStartY();
     void update(Dirt *dirt);
 private:
     QTimer *timer;

@@ -33,21 +33,21 @@ public:
         if (GameWindow->objectName().isEmpty())
             GameWindow->setObjectName(QStringLiteral("GameWindow"));
         GameWindow->setEnabled(true);
-        GameWindow->resize(800, 600);
+        GameWindow->resize(1200, 600);
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(GameWindow->sizePolicy().hasHeightForWidth());
         GameWindow->setSizePolicy(sizePolicy);
-        GameWindow->setMinimumSize(QSize(800, 600));
-        GameWindow->setMaximumSize(QSize(800, 600));
+        GameWindow->setMinimumSize(QSize(1200, 600));
+        GameWindow->setMaximumSize(QSize(1200, 600));
         GameWindow->setCursor(QCursor(Qt::CrossCursor));
         centralwidget = new QWidget(GameWindow);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         GameWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(GameWindow);
         menubar->setObjectName(QStringLiteral("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 21));
+        menubar->setGeometry(QRect(0, 0, 1200, 20));
         GameWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(GameWindow);
         statusbar->setObjectName(QStringLiteral("statusbar"));
