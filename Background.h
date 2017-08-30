@@ -14,7 +14,7 @@ public:
     int getHeight();
     void setPosition(int x, int y);
     void paint(QPainter * qp);
-    void update(Background *background);
+    void update();
 protected:
     QPixmap pixmap;
     QRect position;
