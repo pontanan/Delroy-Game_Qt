@@ -15,7 +15,7 @@ int Grass::getStartY()
     return 500;
 }
 
-void Grass::update(Grass *grass)
+void Grass::update()
 {
 
 }
