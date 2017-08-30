@@ -1,6 +1,6 @@
 #include "Box.h"
 
-Box::Box():Obstacles(QPixmap("Resources/obstacles/box.png"), QRect(300, 436, 64, 64))
+Box::Box():Obstacles(QPixmap("Resources/obstacles/box.png"), QRect(536, 436, 64, 64))
 {
 
 }

@@ -1,6 +1,6 @@
 #include "Pitchfork.h"
 
-Pitchfork::Pitchfork() :Player(QPixmap("Resources/weapons/pitchfork.png"), QRect(600, 0, 137, 500)), xVel(2.0) , yVel(10.0)
+Pitchfork::Pitchfork() :Player(QPixmap("Resources/weapons/pitchfork.png"), QRect(750, 0, 137, 500)), xVel(2.0) , yVel(5.0)
 {
 
 }
@@ -30,11 +30,11 @@ void Pitchfork::update()
     x = position.x() + xVel;
     y = position.y() + yVel;
 
-    if (x < 200)
+    if (x < 600)
     {
        xVel = -xVel;
     }
-    if (x > 600)
+    if (x > 863)
     {
        xVel = -xVel;
     }

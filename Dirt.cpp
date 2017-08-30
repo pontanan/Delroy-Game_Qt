@@ -1,6 +1,6 @@
 #include "Dirt.h"
 
-Dirt::Dirt():Ground(QPixmap("Resources/ground/dirt.png"), QRect(0, 500, 500, 100))
+Dirt::Dirt():Ground(QPixmap("Resources/ground/dirt.png"), QRect(0, 500, 200, 100))
 {
 }
 
