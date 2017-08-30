@@ -12,7 +12,7 @@ public:
     Grass();
     int getStartX();
     int getStartY();
-    void update(Grass *grass);
+    void update();
 private:
     QTimer *timer;
 };
