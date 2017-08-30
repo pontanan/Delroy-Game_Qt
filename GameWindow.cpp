@@ -20,54 +20,6 @@ GameWindow::~GameWindow()
 
 void GameWindow::update()
 {
-    if(maincharacter.getCenterX() > 400 && maincharacter.getDirection() == 0)
-    {
-        background.setPosition(background.getX() - maincharacter.getXVel(), background.getY());
-        dirt.setPosition(dirt.getX() - maincharacter.getXVel(), dirt.getY());
-        grass.setPosition(grass.getX() - maincharacter.getXVel(), grass.getY());
-        stone.setPosition(stone.getX() - maincharacter.getXVel(), stone.getY());
-        box.setPosition(box.getX() - maincharacter.getXVel(), box.getY());
-    }
-    else if(maincharacter.getCenterX() > 400 && maincharacter.getDirection() == 1)
-    {
-
-        if(background.getX() > -5)
-            background.setPosition(0, 0);
-        else
-            background.setPosition(background.getX() + maincharacter.getXVel(), background.getY());
-
-        if(dirt.getX() > dirt.getStartX() - 5)
-            dirt.setPosition(dirt.getStartX(), dirt.getStartY());
-        else
-            dirt.setPosition(dirt.getX() + maincharacter.getXVel(), dirt.getY());
-
-        if(grass.getX() > grass.getStartX() - 5)
-            grass.setPosition(grass.getStartX(), grass.getStartY());
-        else
-            grass.setPosition(grass.getX() + maincharacter.getXVel(), grass.getY());
-
-        if(stone.getX() > stone.getStartX() - 5)
-            stone.setPosition(stone.getStartX(), stone.getStartY());
-        else
-            stone.setPosition(stone.getX() + maincharacter.getXVel(), stone.getY());
-
-        if(box.getX() > box.getStartX() - 5)
-            box.setPosition(box.getStartX(), box.getStartY());
-        else
-            box.setPosition(box.getX() + maincharacter.getXVel(), box.getY());
-
-    }
-    else
-    {
-        background.setPosition(background.getX(), background.getY());
-        dirt.setPosition(dirt.getX(), dirt.getY());
-        grass.setPosition(grass.getX(), grass.getY());
-        stone.setPosition(stone.getX(), stone.getY());
-        box.setPosition(box.getX(), box.getY());
-    }
-
-
-
     background.update(&background);
     dirt.update(&dirt);
     grass.update(&grass);
