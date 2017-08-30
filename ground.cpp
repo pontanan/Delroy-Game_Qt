@@ -45,7 +45,7 @@ void Ground::paint(QPainter * qp)
      qp->drawPixmap(position, pixmap);
 }
 
-void Ground::update(Ground *ground)
+void Ground::update()
 {
-    Ground *tempground = ground;
+    
 }
